@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sc="http://www.w3.org/1999/xhtml">
+<body>
+	<th:block th:fragment="header">
+
+		<script th:src="@{/assets/dncc21/js/obd.main.js}"></script>
+		<script th:src="@{/assets/dncc21/js/select2.js}"></script>
+
+		<div
+			style="float: right; margin-left: 5px; position: fixed; top: 0; right: 0;">
+			<button type="button" class="btn btn-info"
+				style="padding: 2px; margin-top: 5px" id='langBtn'
+				onclick="setLanguage()">English</button>
+		</div>
+
+		<div class="sixteen columns" id="web_banner">
+			<div class="callbacks_container"
+				style="box-shadow: 0 1px 5px #999999;">
+				<ul class="rslides callbacks callbacks1" id="front-image-slider"
+					style="max-width: 960px;">
+					<li id="callbacks1_s0" class=""
+						style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 2000ms ease-in-out 0s;">
+						<img th:src="@{/assets/dncc21/img/dhaka-caka (1).jpg}" alt="dhaka-caka"
+						width="960" height="220">
+					</li>
+
+					<li id="callbacks1_s1" class=""
+						style="float: none; position: absolute; opacity: 0; z-index: 1; display: list-item; transition: opacity 2000ms ease-in-out 0s;">
+						<img th:src="@{/assets/dncc21/img/Prime.jpg}" alt="Prime" width="960"
+						height="220">
+					</li>
+
+					<li id="callbacks1_s2" class=""
+						style="float: none; position: absolute; opacity: 0; z-index: 1; display: list-item; transition: opacity 2000ms ease-in-out 0s;">
+						<img th:src="@{/assets/dncc21/img/dhaka-city (1).jpg}" alt="dhaka-city"
+						width="960" height="220">
+					</li>
+
+					<li id="callbacks1_s3" class="callbacks1_on"
+						style="float: left; position: relative; opacity: 1; z-index: 2; display: list-item; transition: opacity 2000ms ease-in-out 0s;">
+						<img th:src="@{/assets/dncc21/img/Bannanr 4.jpg}" alt="Bannanr 4"
+						width="960" height="220">
+					</li>
+
+					<li id="callbacks1_s4" class=""
+						style="float: none; position: absolute; opacity: 0; z-index: 1; display: list-item; transition: opacity 2000ms ease-in-out 0s;">
+						<img th:src="@{/assets/dncc21/img/nogor-app (1).jpg}" alt="nogor-app"
+						width="960" height="220">
+					</li>
+
+					<li id="callbacks1_s5" class=""
+						style="float: none; position: absolute; opacity: 0; z-index: 1; display: list-item; transition: opacity 2000ms ease-in-out 0s;">
+						<img th:src="@{/assets/dncc21/img/Clean copy.jpg}" alt="Clean copy"
+						width="960" height="220">
+					</li>
+
+					<li id="callbacks1_s6" class=""
+						style="float: none; position: absolute; opacity: 0; z-index: 1; display: list-item; transition: opacity 2000ms ease-in-out 0s;">
+						<img th:src="@{/assets/dncc21/img/Bannanr 1.jpg}" alt="Bannanr 1"
+						width="960" height="220">
+					</li>
+
+					<li id="callbacks1_s7" class=""
+						style="float: none; position: absolute; opacity: 0; z-index: 1; display: list-item; transition: opacity 2000ms ease-in-out 0s;">
+						<img th:src="@{/assets/dncc21/img/Bannanr 2.jpg}" alt="Bannanr"
+						width="960" height="220">
+					</li>
+
+					<li id="callbacks1_s8" class=""
+						style="float: none; position: absolute; opacity: 0; z-index: 1; display: list-item; transition: opacity 2000ms ease-in-out 0s;">
+						<img th:src="@{/assets/dncc21/img/Bannanr 3.jpg}" alt="Bannanr 3"
+						width="960" height="220">
+					</li>
+
+					<li id="callbacks1_s9" class=""
+						style="float: none; position: absolute; opacity: 0; z-index: 1; display: list-item; transition: opacity 2000ms ease-in-out 0s;">
+						<img th:src="@{/assets/dncc21/img/Mayor Atiqu.jpg}" alt="Mayor Atiqu"
+						width="960" height="220">
+					</li>
+				</ul>
+				<a th:href="@{/dncc21/home}" class="callbacks_nav callbacks1_nav prev">Previous</a><a
+					th:href="@{/dncc21/home}" class="callbacks_nav callbacks1_nav next">Next</a>
+
+			</div>
+
+			<div class="header-site-info" id="header-site-info">
+				<div>
+					<div id="logo">
+						<a th:href="@{/dncc21/home}"> <img
+							style="border-radius: 50%; width: 70px;" alt="logo"
+							th:src="@{/assets/dncc21/img/logo.png}">
+						</a>
+					</div>
+
+					<div class="clearfix" id="site-name-wrapper">
+						<span id="site-name"> <a 
+							th:href="@{/dncc21/home}"> Masum Goni Taposh, Ward 21, DNCC </a>
+						</span> <span id="slogan"> </span>
+					</div>
+					<!-- /site-name-wrapper -->
+
+				</div>
+				<!-- /header-site-info-inner -->
+			</div>
+		</div>
+
+
+
+		<div class="sixteen columns" id="jmenu">
+			<div class="sixteen columns">
+
+				<div role="navigation" id="dawgdrops">
+					<ul class="meganizr mzr-slide mzr-responsive">
+						<!-- Build The Menu -->
+						<li class="col0  mzr-drop"><a title="" th:href="@{/dncc21/home}"><span
+								class="glyphicon glyphicon-home"></span></a></li>
+								
+						<li class="col1 mzr-drop"><a th:href="@{/dncc21/home}" class="submenu"
+							title="Enter to get more menu" aria-haspopup="true" id="mm_about"
+							aria-owns="accessible-megamenu-1554607542167-3"
+							aria-controls="accessible-megamenu-1554607542167-3"
+							aria-expanded="false">About</a>
+							<div class="mzr-content drop-one-columns"
+								id="accessible-megamenu-1554607542167-3" role="group"
+								aria-expanded="false" aria-hidden="true"
+								aria-labelledby="accessible-megamenu-1554607542167-2">
+								<div class="one-col">
+									<ul class="mzr-links">
+										<li><a th:href="@{/dncc21/home}" id='mm_about_sm_amgt'>About MG Taposh</a></li>
+										<li><a th:href="@{/dncc21/home}" id='mm_about_sm_ps'>Program Schedule</a></li>
+										<li><a th:href="@{/dncc21/noticeBoard}" id='mm_about_sm_notice'>Notice/
+												Announcement</a></li>
+									</ul>
+								</div>
+							</div></li>
+							
+						<li class="col2 mzr-drop"><a
+							class="submenu open hover-content" th:href="@{/dncc21/home}"
+							title="Enter to get more menu" id="mm_info" aria-haspopup="true"
+							aria-owns="accessible-megamenu-1554607542168-5"
+							aria-controls="accessible-megamenu-1554607542168-5"
+							aria-expanded="false">Info</a>
+							<div class="mzr-content drop-one-columns"
+								id="accessible-megamenu-1554607542168-5" role="group"
+								aria-expanded="false" aria-hidden="true"
+								aria-labelledby="accessible-megamenu-1554607542168-4">
+								<div class="one-col">
+									<ul class="mzr-links">
+										<li><a th:href="@{/dncc21/home}" id='mm_info_sm_geo'>Geographical Map</a></li>
+										<li><a th:href="@{/dncc21/home}" id='mm_info_sm_road'>Area and Lengths
+												of Roads</a></li>
+										<li><a th:href="@{/dncc21/home}" id='mm_info_sm_garbage'>Garbage
+												System and Dumping Stations</a></li>
+										<li><a th:href="@{/dncc21/home}" id='mm_info_sm_lamp'>Road Lamp</a></li>
+										<li><a th:href="@{/dncc21/home}" id='mm_info_sm_sewerage'>Sewerage
+												System</a></li>
+										<li><a th:href="@{/dncc21/home}" id='mm_info_sm_utility'>Utility
+												(Water, Gas, Electricity)</a></li>
+										<li><a th:href="@{/dncc21/home}" id='mm_info_sm_holding'>Holdings and
+												Peoples</a></li>
+										<li><a th:href="@{/dncc21/home}" id='mm_info_sm_voters'>Voters Area</a></li>
+										<li><a th:href="@{/dncc21/home}" id='mm_info_sm_security'>Security
+												System</a></li>
+
+									</ul>
+								</div>
+							</div></li>
+							
+						<li class="col3 mzr-drop"><a th:href="@{/dncc21/home}" class="submenu"
+							title="Enter to get more menu" id="mm_services"
+							aria-haspopup="true"
+							aria-owns="accessible-megamenu-1554607542169-7"
+							aria-controls="accessible-megamenu-1554607542169-7"
+							aria-expanded="false">Services</a>
+							<div class="mzr-content drop-one-columns"
+								id="accessible-megamenu-1554607542169-7" role="group"
+								aria-expanded="false" aria-hidden="true"
+								aria-labelledby="accessible-megamenu-1554607542169-6">
+								<div class="one-col">
+									<ul class="mzr-links">
+										<li><a th:href="@{/dncc21/services/citizen}"
+											id="mm_services_sm_citizen">Citizen Certificate</a></li>
+										<li><a th:href="@{/dncc21/services/heir}" id="mm_services_sm_heir">Heir
+												Certificate</a></li>
+										<li><a th:href="@{/dncc21/home}" id="mm_services_sm_character">Character
+												Certificate</a></li>
+										<li><a th:href="@{/dncc21/home}" id="mm_services_sm_birth">Birth
+												Certificate</a></li>
+										<li><a th:href="@{/dncc21/home}" id="mm_services_sm_death">Death Certificate</a></li>
+										<li><a th:href="@{/dncc21/services/others}" id="mm_services_sm_others">Others Certificate</a></li>
+										<li><a th:href="@{/dncc21/home}" id="mm_services_sm_security">Local
+												security guard</a></li>
+										<li><a th:href="@{/dncc21/home}" id="mm_services_sm_cctv">Surveillance
+												and security system (CCTV camera )</a></li>
+										<li><a th:href="@{/dncc21/home}" id="mm_services_sm_internet">Free
+												Internet Wifi Zone</a></li>
+										<li><a th:href="@{/dncc21/home}" id="mm_services_sm_adv">Digital
+												Screen for advertise</a></li>
+										<li><a th:href="@{/dncc21/services/neonate}" id="mm_services_sm_birthInput">Neonate Data Input</a></li>
+									</ul>
+								</div>
+							</div></li>
+							
+						<li class="col4 mzr-drop"><a th:href="@{/dncc21/social}" class="submenu"
+							id="mm_social" aria-haspopup="true"
+							aria-owns="accessible-megamenu-1554607542170-9"
+							aria-controls="accessible-megamenu-1554607542170-9"
+							aria-expanded="false">Social Activities </a>
+							</li>
+							
+						<li class="col5 mzr-drop"><a th:href="@{/dncc21/complain}" class="submenu"
+							id="mm_complain" aria-haspopup="true"
+							aria-owns="accessible-megamenu-1554607542171-11"
+							aria-controls="accessible-megamenu-1554607542171-11"
+							aria-expanded="false">Complain</a></li>
+							
+						<li class="col6 mzr-drop"><a th:href="@{/dncc21/home}" class="submenu"
+							id="mm_suggestion" aria-haspopup="true"
+							aria-owns="accessible-megamenu-1554607542172-13"
+							aria-controls="accessible-megamenu-1554607542172-13"
+							aria-expanded="false">Suggestions</a></li>
+							
+						<li class="col7 mzr-drop"><a th:href="@{/dncc21/home}" class="submenu"
+							id="mm_workPlan" aria-haspopup="true"
+							aria-owns="accessible-megamenu-1554607542173-15"
+							aria-controls="accessible-megamenu-1554607542173-15"
+							aria-expanded="false">Work Plan</a>
+							<div class="mzr-content drop-one-columns"
+								id="accessible-megamenu-1554607542173-15" role="group"
+								aria-expanded="false" aria-hidden="true"
+								aria-labelledby="accessible-megamenu-1554607542173-14">
+								<div class="one-col">
+									<ul class="mzr-links">
+										<li><a th:href="@{/dncc21/home}" id="mm_workPlan_sm_ongoing">Work on
+												going</a></li>
+										<li><a th:href="@{/dncc21/home}" id="mm_workPlan_sm_done">Work done</a></li>
+										<li><a th:href="@{/dncc21/home}" id="mm_workPlan_sm_inhand">Work in
+												Hand</a></li>
+									</ul>
+								</div>
+							</div></li>
+							
+						<li class="col8 mzr-drop"><a th:href="@{/dncc21/home}" class="submenu"
+							id="mm_contact" aria-haspopup="true"
+							aria-owns="accessible-megamenu-1554607542174-17"
+							aria-controls="accessible-megamenu-1554607542174-17"
+							aria-expanded="false">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+
+	</th:block>
+</body>
+</html>

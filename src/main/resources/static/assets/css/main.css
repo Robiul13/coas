@@ -1,0 +1,971 @@
+/*! HTML5 Boilerplate v6.0.1 | MIT License | https://html5boilerplate.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+    display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap; /* 1 */
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    -webkit-clip-path: none;
+    clip-path: none;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+    white-space: inherit;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 1.25dppx),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre {
+        white-space: pre-wrap !important;
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    /*p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }*/
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+.margin_top{
+    margin-top: 20px;
+}
+.margin_bottom{
+    margin-bottom: 20px;
+}
+.main_form{
+    padding: 20px;
+}
+.content-wrapper{
+    background-color: #DBDBE8;
+}
+.user-panel{
+    padding: 30px 10px;
+}
+.user-panel > .image > img {
+    width: 100%;
+    max-width: 45px;
+    height: 45px;
+}
+.skin-blue .main-sidebar{
+    background-color: #010035;
+}
+.skin-blue .sidebar-menu > li > .treeview-menu{
+    background-color: #626A98;
+}
+.skin-blue .treeview-menu > li > a{
+    color: #fff;
+}
+.skin-blue .treeview-menu > li.active > a{
+    color: #F29920;
+}
+.skin-blue .sidebar-menu > li:hover > a, .skin-blue .sidebar-menu > li.active > a{
+color: #fff;
+background: #282256;
+border-left-color: #FA7107;
+}
+.skin-blue .main-header li.user-header{
+    background-color: #524D9C;
+}
+.skin-blue .main-header .navbar {
+    background-color: #E6E9EF;
+    box-shadow: 4px 1px 4px -1px #222D32;
+}
+.skin-blue .main-header .logo {
+    background-color: #E6E9EF;
+    color: #222D32;
+    border-bottom: 0 solid transparent;
+}
+.skin-blue .main-header .logo:hover {
+    background-color: #E6E9EF;
+    color: #222D32;
+    border-bottom: 0 solid transparent;
+}
+.main-header .logo .logo-lg img{
+   width: 70%;
+}
+@media only screen and (min-width:320px) and (max-width: 736px){
+.main-header .logo .logo-lg img{
+   width: 30%;
+}
+}
+.nav-tabs > li:first-child{
+    margin-left: 1px;
+}
+.nav-tabs > li > a{
+    border: 1px solid #ddd;
+    padding: 5px 5px;
+    margin-left: -2px;
+    margin-right: 0px;
+    background-color: #114A6A;
+    color: #fff;
+}
+.bg_venue_type{
+    background-color: #fff;
+    margin-top: 8%;
+    border-radius: 4px;
+    box-shadow: 1px 1px 5px 1px #bbb;
+}
+.venu_type_select{
+    padding: 20px 30px;
+}
+.venu_type_fbtn .btn{
+    padding: 6px 35px;
+    margin-right: -15px;
+}
+.add_image_btn .btn{
+    padding: 6px 35px;
+    margin-right: 0px;
+}
+.navbar-collapse{
+margin-right: -15px;
+margin-left: -14px;
+}
+i.icon.delete::before {
+    content: "\f00d";
+}
+i.icon.delete::before {
+   font-family: 'FontAwesome';
+}
+#myNav li:not([disabled]){
+            cursor:pointer;
+        }
+        #myNav{
+            border-radius: 0px;
+        }
+.thumbnail{
+    padding: 0px;
+    margin-bottom: 0px;
+    border-bottom: 3px solid #524D9C;
+}
+.nav-justified > li{
+    width: auto;
+}
+.form-group{
+    margin-bottom: 0px;
+}
+
+#myNav h4{
+    font-weight: normal;
+    font-size: 15px;
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover{
+    border-top-color: #F29920;
+    color: #fff;
+    background-color: #524D9C;
+}
+.well{
+ padding: 35px;
+ /*background-color: #E8EBF0;*/
+ background-image: none;
+ border-radius: 0px;
+ /*box-shadow: 0px 1px 6px -1px #010035;*/
+ border-color: #ccc;
+}
+.Editor-editor{
+    background-color: #fff;
+    border-color: #ddd;
+}
+.wickedpicker__controls__control-up::before{
+    font-family: 'FontAwesome';
+}
+.wickedpicker__controls__control-up::before {
+    content: '\f077';
+}
+.wickedpicker__controls__control-down::after {
+     font-family: 'FontAwesome';
+}
+.wickedpicker__controls__control-down::after {
+    content: '\f078';
+}
+/*input[type="text"]{
+    margin-bottom: 8px;
+}*/
+.form-control{
+    padding:6px 12px 6px 12px;
+}
+input[type="checkbox"]{
+    margin-top: 8px;
+}
+.skin-blue .main-header .navbar .sidebar-toggle{
+    color: #222D32;
+}
+.skin-blue .main-header .navbar .nav > li > a{
+    color: #222D32;
+}
+.skin-blue .main-header .navbar .sidebar-toggle:hover{
+    color: #222D32;
+    background-color: #E6E9EF;
+}
+.skin-blue .main-header .navbar .nav > li > a:hover{
+    color: #222D32;
+}
+#related_restaurent_fields{
+    display: none;
+}
+.mroom_details thead, .groom_details thead, .room_details thead, .xtra_mng thead, .image_gallary thead{
+    background-color: #393B4E;
+    color: #eee;
+}
+.alert-danger{
+    color: maroon !important;
+}
+.active_btn .btn, .thumb_btn .btn{
+    padding: 2px 30px;
+}
+.image_gallary_active .btn,  .image_gallary_thum .btn{                
+       padding: 2px 30px;  
+}
+.image_gallary_order .btn{
+    padding: 2px 8px;
+    margin-top: -5px;
+}
+.image_gallary input[type="number"]{
+    height: 25px;
+}
+/*================== Booking_now Calander start ===================*/
+ .panel.with-nav-tabs .panel-heading{
+    padding: 5px 5px 0 5px;
+}
+.panel.with-nav-tabs .nav-tabs{
+    border-bottom: none;
+}
+.panel.with-nav-tabs .nav-justified{
+    margin-bottom: -1px;
+}
+/********************************************************************/
+/*** PANEL DEFAULT ***/
+.with-nav-tabs.panel-default .nav-tabs > li > a,
+.with-nav-tabs.panel-default .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-default .nav-tabs > li > a:focus {
+    color: #fff;
+}
+.with-nav-tabs.panel-default .nav-tabs > .open > a,
+.with-nav-tabs.panel-default .nav-tabs > .open > a:hover,
+.with-nav-tabs.panel-default .nav-tabs > .open > a:focus,
+.with-nav-tabs.panel-default .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-default .nav-tabs > li > a:focus {
+    color: #fff;
+    background:transparent;
+    border-color: transparent;
+}
+.with-nav-tabs.panel-default .nav-tabs > li.active > a,
+.with-nav-tabs.panel-default .nav-tabs > li.active > a:hover,
+.with-nav-tabs.panel-default .nav-tabs > li.active > a:focus {
+    color: #555;
+    background-color: #fff;
+    border-color: #ddd;
+    border-bottom-color: transparent;
+}
+.with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu {
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+.with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > li > a {
+    color: #777;   
+}
+.with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
+.with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
+    background-color: #ddd;
+}
+.with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > .active > a,
+.with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > .active > a:hover,
+.with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > .active > a:focus {
+    color: #fff;
+    background-color: #555;
+}
+.panel-default > .panel-heading{
+    background-color: #3F3067;
+    border-color: #3F3067;
+    background-image: none;
+}
+.booking_topic, .booking_cal, .bookingFinal_details{
+    margin-top: 30px;
+}
+.bookingFinal_details{margin-bottom: 30px;}
+.bookingFinal_details label{
+    margin-top: 10px;
+}
+@media (min-width: 765px) and (max-width: 1024px){
+  .bookingFinal_details label{
+    margin-top: 10px;
+    padding: 0px;
+}  
+}
+.bookingFinal_details .form-control{
+    height: 35px;
+    border: 1px solid #ddd;
+}
+.bookingFinal_details .btn{
+    background-color: #2AABD2;
+    border-color: #2AABD2;
+    color: #fff;
+    padding: 6px 30px;
+}
+@media (min-width: 300px) and (max-width: 740px){
+    .bookingFinal_details .btn{
+        margin-top: 8px;
+    }
+}
+.booking_btn .btn{
+    padding: 6px 25px;
+}
+
+.available_room .summary_row{
+    margin: 0px 0px;
+}
+.available_room .details_row {
+    border: 1px solid #9E5428;
+    background-color: #F9F9F9;
+    border-top: 30px solid #9E5428;
+    border-radius: 5px 5px 0px 0px;
+    margin: 15px;
+}
+.details_row{
+    display: none;
+}
+.available_room:hover{
+    box-shadow: 1px 1px 4px 0px #ccc;
+}
+.available_room{
+    background-color: #F0F1F5;
+    margin: 10px 0px;
+    padding: 15px 0px;
+    border: 1px solid #ddd;
+}
+.available_room h4, .available_room h3{
+    margin-top: 5px;
+    color: #0077CC;
+}
+.available_room img{
+    border-radius: 5px;
+}
+.available_room li a{
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0px 1px #5E5E5E;
+}
+.available_room .btn-details, .available_room .btn-avail, .available_room .btn-book{
+    width: 16%;
+    font-size: 14px;
+    color: #fff;
+    border: 1px solid #ddd;
+} 
+.booking_topic h4{
+    font-weight: bold;
+}
+.available_room_price h4{
+    font-weight: normal;
+}
+.available_room .btn-details{background-color: #9E5428; border:1px solid #9E5428; }
+.available_room .btn-avail{background-color: #E27E1C; border:1px solid #E27E1C; }
+.available_room .btn-book{background-color: #008891; border:1px solid #008891; }
+@media (min-width: 300px) and (max-width: 767px){
+    .available_room .btn-details, .available_room .btn-avail, .available_room .btn-book{
+        font-size: 10px;
+        padding: 4px 2px;
+        width: 30%;
+        color: #fff;
+    }
+}
+.available_room_price h4{
+    background-color: #B3D7F3;
+    color: #000;
+    width: 20%;
+    padding: 6px 8px;
+    border-radius: 0px 5px 5px 5px;
+}
+.available_room{
+    position: relative;
+}
+.available_room_price h4{
+    position: absolute;
+    top: -12px;
+    right: 15px;
+}
+.available_room_price_txt{position: relative;}
+.available_room_price_txt:after{
+content: "";
+border: 4px solid #5F98D3;
+border-radius: 5px 5px 0px 0px;
+/*width: 8px;
+height: 8px;
+background-color: blue;*/
+/*border-right-color: rgb(15, 97, 119);
+border-bottom-color: rgb(15, 97, 119);*/
+position: absolute;
+top: -1px;
+left: -7px;
+border-top-color: transparent;
+border-left-color: transparent;
+}
+@media (min-width: 300px) and (max-width: 767px){
+    .available_room_price h4{
+    background-color: #B3D7F3;
+    color: #000;
+    width: 50%;
+    padding: 8px 8px;
+    border-radius: 0px 5px 5px 5px;
+    font-size: 13px;
+}
+}
+/*================== Booking_now Calander end ===================*/
+/*================== css for auto complete ===================*/
+  .ui-autocomplete {
+    max-height: 100px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+  }
+  /* IE 6 doesn't support max-height
+   * we use height instead, but this forces the menu to always be this tall
+   *
+  */ 
+  html .ui-autocomplete {
+    height: 100px;
+  }
+  
+  /*================== css for auto complete end ===================*/
+  /*================== Join and Login Page start ===================*/
+
+/*.bg_body{
+    background: url(../img/j1.jpg) no-repeat ;
+    width: 100%;
+    height: auto;
+}*/
+.join_lbody, .login_lbody{
+    /*background: url(../img/j1.jpg) no-repeat center center;*/
+    color: #fff;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.join_overlay, .login_overlay{
+    background-color: rgba(0,0,0,0.7);
+}
+.join_form{
+    background-color: rgba(255,255,255,0.7);
+color: #333 !important;
+padding: 35px 66px 55px 65px;
+border-top: 10px solid #553090;
+box-shadow: 0px 0px 15px 0px #553090;
+}
+.login_form{
+   background-color: rgba(255,255,255,0.7);
+    color: #333 !important;
+    padding: 35px 66px 55px 65px;
+    border-top: 10px solid #553090;
+    box-shadow: 0px 0px 15px 0px #553090;
+}
+.join_form label{ margin-bottom: 0px; font-size: 14px;}
+.join_form .form-control{
+    border-bottom: 1px solid #bbb;
+    height: 30px;
+    padding: 6px 0px;
+}
+.join_form .btn{
+    padding: 6px 35px;
+}
+.join_form a{
+    color: #6C6D69;
+}
+.join_left_text, .login_text{
+    color: #fff;
+}
+.join_left_text h1{
+    margin-top: 40%;
+}
+ .login_text h1{
+    margin-top: 50%;
+}
+@media (min-width: 300px) and (max-width: 767px){
+    .login_text h1{
+    margin-top: 20%;
+}
+   .login_text h3{
+    margin-bottom: 20%;
+}
+}
+.login_form_bg{
+    background-color: #553090;
+}
+.login_form_inputfield input[type=text]{
+    margin-bottom: 5px;
+}
+.login_form_inputfield{
+    padding: 15px;
+    position: relative;
+}
+.vlogin_form_btn{
+  width: 55px;
+height: 55px;
+border-radius: 50px;
+background-color: #553090;
+padding: 12px 10px;
+position: absolute;
+bottom: 122px;
+right: 32px;
+}
+.vlogin_form_btn .btn{
+ width: 40px;
+height: 40px;
+padding: 6px 6px;
+border-radius: 50px;
+font-weight: bold;
+font-size: 16px;
+margin: -5px -2px;
+background-color: #EB9532;
+color: #fff;
+box-shadow: 0px 0px 3px 1px #333;
+text-shadow: 1px 0px #555;
+}
+canvas{width: 100% !important;}
+ #demo{
+            width: 100%;
+            height: auto;
+            border: 1px solid red;
+        }
+
+.demo{position: relative;}
+.login_lbody{
+    position: absolute;
+    top: 70px;
+    left: 31%;
+    width: 40%;
+}
+@media (min-width: 300px) and (max-width: 767px){
+    .login_lbody {
+    position: absolute;
+    top: 145px;
+    left: 5%;
+    width: 90%;
+}
+.login_form {
+    background-color: #fff;
+    color: #000;
+    padding: 8px 45px 20px 35px;
+}
+.login_form p{font-size: 14px;}
+.join_form {
+    background-color: #fff;
+    color: #000;
+    padding: 8px 45px 20px 35px;
+}
+.join_form p{font-size: 14px;}
+.vlogin_form_btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 50px;
+    background-color: #553090;
+    padding: 12px 10px;
+    position: absolute;
+    bottom: -35px;
+    right: 12px;
+    top: 108px;
+}
+}
+/*================== Join and Login Page end ===================*/
+/*==============nav bar==============*/
+.dropdown-menu {
+    text-align: center;
+    background-color: #ddd;
+    color: #000;
+}
+.dropdown-menu img{
+    padding: 20px 0px;
+}
+/*=========== User Profile Start ================ */
+
+/* USER PROFILE PAGE */
+ .card {
+    margin-top: 20px;
+    padding: 30px;
+    background-color: rgba(214, 224, 226, 0.2);
+    -webkit-border-top-left-radius:5px;
+    -moz-border-top-left-radius:5px;
+    border-top-left-radius:5px;
+    -webkit-border-top-right-radius:5px;
+    -moz-border-top-right-radius:5px;
+    border-top-right-radius:5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 1);
+}
+.card.hovercard .card-background {
+    height: 130px;
+}
+.card-background img {
+    -webkit-filter: blur(25px);
+    -moz-filter: blur(25px);
+    -o-filter: blur(25px);
+    -ms-filter: blur(25px);
+    filter: blur(25px);
+    margin-left: -100px;
+    margin-top: -200px;
+    min-width: 130%;
+}
+.card.hovercard .useravatar {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+}
+.card.hovercard .useravatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+.card.hovercard .card-info {
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+}
+.card.hovercard .card-info .card-title {
+    padding:0 5px;
+    font-size: 20px;
+    line-height: 1;
+    color: #262626;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.card.hovercard .card-info {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+.card.hovercard .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+.btn-pref .btn {
+    -webkit-border-radius:0 !important;
+}
+.v_profile{
+    padding: 30px 0px;
+}
+.v_profile_right{
+    margin-top: 30px;
+}
+.v_profile_right ul li{
+    padding: 8px 0px;
+}
+.profile_border{border: 1px solid #ddd; padding: 60px 0px; box-shadow: 1px 0px 4px 1px #ddd;}
+.v_booking_history table thead th, .v_booking_favorite table thead th{
+    text-align: center;
+}
+/*==================== User Profile end ============================== */
+/*=========== Admin Profile start ================ */
+
+
+.add_set{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 30px 15px;
+    margin: 10px 0px;
+}
+.add_set a{
+    text-decoration: none;
+}
+.add_set i{
+    font-size: 20px;
+}
+.card.hovercard .card-info .card-title-admin{
+    padding:0 5px;
+    font-size: 40px;
+    line-height: 1;
+    color: #fff;
+    text-shadow: 1px 0px #eee;
+    /*background-color: rgba(255, 255, 255, 0.1);*/
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.card.hovercard .card-background-admin {
+    height: 260px;
+    background-image: url(../img/v1.jpg);
+    margin-right: -30px;
+    margin-left: -30px;
+    margin-bottom: -30px
+}
+.card-background-admin_overlay{
+    background-color: rgba(0,0,0,0.7); 
+    height: 260px;
+}

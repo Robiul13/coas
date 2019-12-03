@@ -1,0 +1,202 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/layout}">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+	<div layout:fragment="content" th:remove="tag">
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1 style="text-align: center">Edit Other Certificate</h1>
+			</section>
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<!-- left column -->
+					<div class="col-md-8 col-md-offset-2">
+						<!-- general form elements -->
+						<div class="box box-primary">
+							<!-- /.box-header -->
+							<!-- form start -->
+
+
+							<form role="form" id="edit_service" method="post"
+								th:action="@{/}" th:object="${certificate}">
+								<div class="box-body">
+
+									<table class="table table-striped">
+										<tbody>
+
+											<tr>
+												<th scope="row" width="40%">Tracking No:</th>
+												<td><span class="label label-success"
+													th:text="${certificate.trackingNo}"> </span></td>
+											</tr>
+											<tr>
+												<th scope="row">Name of Death person:</th>
+												<td><span th:text="${certificate.dName}"> </span></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Gender of Death person:</th>
+												<td><span th:text="${certificate.dGender}"> </span></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Date of Death:</th>
+												<td><span th:text="${certificate.dod}"> </span></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Applicant Relation with death person:</th>
+												<td><span th:text="${certificate.dRelation}"> </span></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Father Name of Death person:</th>
+												<td><span th:text="${certificate.dFatherName}">
+												</span></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Mother Name of Death person:</th>
+												<td><span th:text="${certificate.dMotherName}">
+												</span></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Present Address of Death person:</th>
+												<td><span th:text="${certificate.dPresentAddr}">
+												</span></td>
+											</tr>
+											<tr>
+												<th scope="row">Permanent Address of Death person:</th>
+												<td><span th:text="${certificate.dPermanentAddr}">
+												</span></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Marital Status of Death person:</th>
+												<td><span th:text="${certificate.mStatus}"> </span></td>
+											</tr>
+											<tr
+												th:if="${certificate.mStatus} eq 'Married' and ${certificate.dGender} eq 'Female' ">
+												<th scope="row">Husband Name of Death person:</th>
+												<td><span th:text="${certificate.dHusbandName}">
+												</span></td>
+											</tr>
+
+
+											<tr>
+												<th scope="row">Applicant Name:</th>
+												<td><span th:text="${certificate.applicantName}">
+												</span></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Applicant Address:</th>
+												<td><span th:text="${certificate.applicantAddr}">
+												</span></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Applicant Mobile:</th>
+												<td><span th:text="${certificate.applicantMobile}">
+												</span></td>
+											</tr>
+
+											<tr>
+												<th scope="row">ApplicantNidNo:</th>
+												<td><span th:text="${certificate.applicantNidNo}">
+												</span></td>
+											</tr>
+
+
+											<tr>
+												<th scope="row">Attachment(s)</th>
+												<td><span th:if="${certificate.img1Path!= null}">
+														<a th:href="@{${certificate.img1Path}}" target="_blank">
+															<img th:src="@{${certificate.img1Path}}"
+															class="img-responsive img-rounded"
+															style="width: 100%; height: auto;">
+													</a>
+												</span> <span th:if="${certificate.img2Path!= null}"> <br>
+														<a th:href="@{${certificate.img2Path}}" target="_blank">
+															<img th:src="@{${certificate.img2Path}}"
+															class="img-responsive img-rounded"
+															style="width: 100%; height: auto;">
+													</a>
+												</span> <span th:if="${certificate.img3Path!= null}"> <br>
+														<a th:href="@{${certificate.img3Path}}" target="_blank">
+															<img th:src="@{${certificate.img3Path}}"
+															class="img-responsive img-rounded"
+															style="width: 100%; height: auto;">
+													</a>
+												</span></td>
+											</tr>
+											<tr>
+												<th scope="row">Submit Time:</th>
+												<td
+													th:text="${#dates.format(certificate.getCreateDate(), 'yyyy-MM-dd hh:mm:ss a')}"></td>
+											</tr>
+											
+											<tr>
+												<th scope="row">Update Time:</th>
+												<td
+													th:text="${#dates.format(certificate.getModifyDate(), 'yyyy-MM-dd hh:mm:ss a')}"></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Status</th>
+												<td><select class="form-control" id="status"
+													name="status">
+														<option th:each="entry : ${statusMap.entrySet()}"
+															th:value="${entry.key}" th:text="${entry.value}"
+															th:selected="${entry.key==certificate.status}">
+												</select></td>
+											<tr>
+												<th scope="row">Remarks</th>
+												<td><textarea class="form-control" rows="2" cols="50"
+														th:field="*{remark}"></textarea></td>
+											</tr>
+
+
+										</tbody>
+									</table>
+								</div>
+
+								<div class="form-group  text-center">
+									<input type="hidden" id="statusDb" th:field="*{status}" /> <input
+										type="hidden" id="citizenId" th:field="*{id}" />
+									<button type="button" id="updBtn" class="btn btn-primary"
+										disabled="disabled">Update</button>
+								</div>
+								<hr />
+							</form>
+
+							<form th:action="@{/adminpanel/v2/heirCertificates/update}"
+								id="updateGenericForm" method="POST">
+								<input type="hidden" id="id_temp" name="id" /> <input
+									type="hidden" id="remark_temp" name="remark" /> <input
+									type="hidden" id="status_temp" name="status" />
+							</form>
+							<script
+								th:src="@{/assets/adminpanel/js/otherCertificates/updateGenericCertificate.js}">
+								
+							</script>
+
+						</div>
+					</div>
+				</div>
+				<!-- /.row -->
+			</section>
+			<!-- /.content -->
+		</div>
+	</div>
+
+</body>
+</html>

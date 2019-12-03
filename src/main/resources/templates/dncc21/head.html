@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sc="http://www.w3.org/1999/xhtml">
+<body>
+	<th:block th:fragment="head">
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="ctx" th:content="@{/}" />
+
+
+<link rel="shortcut icon" href="http://www.dncc.gov.bd/misc/favicon.ico"
+	type="image/x-icon">
+<title>MG Taposh, Ward 21, DNCC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+ 
+<!-- Bootstrap Core CSS -->
+<link th:href="@{/assets/dncc21/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+	
+	
+<link type="text/css" rel="stylesheet" media="all"
+	th:href="@{/assets/dncc21/css/skeleton.css}">
+<link type="text/css" rel="stylesheet" media="all"
+	th:href="@{/assets/dncc21/css/style.css}">
+<link type="text/css" rel="stylesheet" media="all"
+	th:href="@{/assets/dncc21/css/meganizr.css}">
+<link type="text/css" rel="stylesheet" media="all"
+	th:href="@{/assets/dncc21/css/demo.css}">
+<link type="text/css" rel="stylesheet" media="all"
+	th:href="@{/assets/dncc21/css/flaticon.css}"> 
+	
+
+<script th:src="@{/assets/dncc21/js/jquery-3.4.0.min.js}"></script> 
+<!-- <script th:src="@{/assets/dncc21/js/jquery-accessibleMegaMenu.js}"></script> -->
+
+
+<link rel="stylesheet" th:href="@{/assets/dncc21/css/responsiveslides.css}">  
+<link rel="stylesheet" th:href="@{/assets/dncc21/css/responsive.css}">
+<link rel="stylesheet" th:href="@{/assets/dncc21/css/accessibility.css}">
+<link rel="Stylesheet"  th:href="@{/assets/dncc21/css/yoxview.css}">
+<link rel="stylesheet" th:href="@{/assets/dncc21/css/obd.main.css}">
+
+<script th:src="@{/assets/dncc21/js/responsiveslides.min.js}"></script>
+<script th:src="@{/assets/dncc21/js/jquery.vticker.js}" ></script>
+<script th:src="@{/assets/dncc21/js/domain_selector.js}" ></script>
+<script th:src="@{/assets/dncc21/js/utils.js}" ></script>
+<script th:src="@{/assets/dncc21/js/properties.js}"></script>
+
+<script th:inline="javascript">
+
+    /*<![CDATA[*/
+    window.context = /*[[${context}]]*/ "";
+    window.csrfToken = /*[[${_csrf.token}]]*/ "";
+    window.csrfHeader = /*[[${_csrf.headerName}]]*/ "";
+    /*]]>*/
+</script>
+
+<style>
+* {
+	-webkit-user-select: auto !important; /* injected by RightToCopy */
+}
+
+.rslides img {
+	height: 220px
+}
+
+.right-side-bar .block ul li a {
+	font-size: 14px;
+}
+
+#notice-board ul a {
+	font-size: 14px;
+}
+
+@media screen and (min-width: 1400px) {
+	.mainwrapper .box {
+		margin-right: 13px
+	}
+}
+
+#notice-board-ticker ul li {
+	list-style: none;
+}
+
+.lineheight {
+	line-height: 22px;
+}
+
+#right-content .block {
+	display: block !important
+}
+</style>
+
+
+
+	</th:block>
+</body>
+</html>

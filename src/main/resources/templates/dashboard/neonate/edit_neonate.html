@@ -1,0 +1,107 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/layout}">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+	<div layout:fragment="content" th:remove="tag">
+		<div class="content-wrapper">
+			<section class="content-header">
+				<h1 style="text-align: center">Neonate Details</h1>
+			</section>
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<!-- left column -->
+					<div class="col-md-8 col-md-offset-2">
+						<!-- general form elements -->
+						<div class="box box-primary">
+							<!-- /.box-header -->
+							<!-- form start -->
+
+
+							<form role="form" id="edit_service" method="post"
+								th:action="@{/}" th:object="${neonate}">
+								<div class="box-body">
+
+									<table class="table table-striped">
+										<tbody>
+
+											<tr>
+												<th scope="row" width="40%">Tracking No:</th>
+												<td><span th:text="${neonate.trackingNo}"
+													class="label label-success"> </span></td>
+											</tr>
+
+
+											<tr>
+												<th scope="row">Gender of Baby:</th>
+												<td><span th:text="${neonate.gender}"> </span></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Date of Birth :</th>
+												<td><span th:text="${neonate.dob}"> </span></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Father of Baby :</th>
+												<td><span th:text="${neonate.father}"> </span></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Mother of Baby :</th>
+												<td><span th:text="${neonate.mother}"> </span></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Present Address of Family :</th>
+												<td><span th:text="${neonate.presentAddr}"> </span></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Permanent Address of Family :</th>
+												<td><span th:text="${neonate.permanentAddr}"> </span></td>
+											</tr>
+											<tr>
+												<th scope="row">Contact Number of Family :</th>
+												<td><span th:text="${neonate.mobile}"> </span></td>
+											</tr>
+											
+											<tr>
+												<th scope="row">Hospital Name :</th>
+												<td><span th:text="${neonate.hospital}"> </span></td>
+											</tr>
+											
+											<tr>
+												<th scope="row">Submit Time:</th>
+												<td
+													th:text="${#dates.format(neonate.getCreateDate(), 'yyyy-MM-dd hh:mm:ss a')}"></td>
+											</tr>
+
+
+										</tbody>
+									</table>
+								</div>
+
+
+								<hr />
+							</form>
+
+
+
+
+						</div>
+					</div>
+				</div>
+				<!-- /.row -->
+			</section>
+			<!-- /.content -->
+		</div>
+	</div>
+
+</body>
+</html>

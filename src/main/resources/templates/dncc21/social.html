@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/html"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<th:block th:replace="dncc21/head.html :: head" />
+<!-- <script  th:src="@{/assets/dncc21/js/complain_lang.js}"></script> -->
+</head>
+
+<body class="dncc-portal-gov-bd">
+
+	<div class="container">
+
+		<th:block th:replace="dncc21/header.html :: header" />
+
+		<!-- Citizen Certificate Page -->
+		<script th:src="@{/assets/dncc21/js/complain.js}"></script>
+		<div class="sixteen columns">
+			<h6></h6>
+			<h2 class="text-center" id="lab_mh">Follow us in Social Media</h2>
+			<div style="width: 48%; float: left;">
+				<iframe
+					src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fmgtaposhward21&tabs=timeline&width=500&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+					width="500" height="500" style="border: none; overflow: hidden"
+					scrolling="no" frameborder="0" allowTransparency="true"
+					allow="encrypted-media"></iframe>
+			</div>
+
+			<div
+				style="width: 48%; float: left; overflow: hidden; margin-left: 4%;">
+				<a class="twitter-timeline" data-height="500"
+					href="https://twitter.com/sajeebwazed?ref_src=twsrc%5Etfw">Tweets
+					by sajeebwazed</a>
+				<script async src="https://platform.twitter.com/widgets.js"
+					charset="utf-8"></script>
+			</div>
+
+			<div style="clear: both;"></div>
+
+			<hr />
+			<script
+				src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		</div>
+
+	</div>
+	<!-- container -->
+
+	<th:block th:replace="dncc21/footer.html :: footer" />
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/layout}">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+	<div layout:fragment="content" th:remove="tag">
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1 style="text-align: center">Add Notice</h1>
+			</section>
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<!-- left column -->
+					<div class="col-md-8 col-md-offset-2">
+						<!-- general form elements -->
+						<div class="box box-primary">
+							<!-- /.box-header -->
+							<!-- form start -->
+							<form role="form"
+								th:action="@{/adminpanel/v2/publicNotice/saveNotice}"
+								enctype="multipart/form-data" th:object="${notice}"
+								method="post">
+								<div class="box-body">
+
+									<div class="form-group">
+										<label for="title">Notice title English</label>: 
+										<input required type="text" th:field="*{title}" id="title"
+											class="form-control" autofocus="autofocus"
+											placeholder="Enter notice title in English"> 
+											<label th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
+											th:class="'error'">Notice title English</label>
+									</div>
+									
+									<div class="form-group">
+										<label for="titleBn">Notice title Bangla</label>: 
+										<input required type="text" th:field="*{titleBn}" id="titleBn"
+											class="form-control" autofocus="autofocus"
+											placeholder="Enter notice title in Bangla"> 
+											<label th:if="${#fields.hasErrors('titleBn')}" th:errors="*{titleBn}"
+											th:class="'error'">Notice title Bangla</label>
+									</div>
+
+									<div class="form-group">
+										<label for="lastName">Publish Date</label>: <input required
+											type="date" th:field="*{publishDate}" id="publishDate"
+											class="form-control" autofocus="autofocus"> <label
+											th:if="${#fields.hasErrors('publishDate')}"
+											th:errors="*{publishDate}" th:class="'error'">Publish
+											Date</label>
+									</div>
+
+									<div class="form-group">
+										<label for="pdf">Upload Notice</label>: <input required
+											type="file" th:field="*{pdf}" id="pdf" class="form-control"
+											autofocus="autofocus" accept=".pdf"> <label
+											th:if="${#fields.hasErrors('pdf')}" th:errors="*{pdf}"
+											th:class="'error'">Upload Notice</label>
+
+									</div>
+
+
+
+								</div>
+
+								<div class="box-footer text-center">
+									<button type="submit" class="btn btn-primary">Save</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<!-- /.row -->
+			</section>
+			<!-- /.content -->
+		</div>
+	</div>
+</body>
+</html>

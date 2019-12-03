@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/html"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<script th:src="@{/assets/dncc21/js/heirCertificate_lang.js}">
+	
+</script>
+
+<th:block th:replace="dncc21/head.html :: head" />
+
+</head>
+
+<body class="dncc-portal-gov-bd">
+
+	<div class="container">
+
+		<th:block th:replace="dncc21/header.html :: header" />
+
+		<!-- Heir Certificate Page -->
+
+		<div class="sixteen columns">
+			<div id="heirCertificateDiv">
+				<h3 class="text-center" id="main_header">Heir Certificate
+					Application form</h3>
+				<hr />
+
+				<form name="heirApplicationForm" id="heirApplicationForm"
+					enctype="multipart/form-data"
+					th:action="@{/api/v1/services/heirCertificate/create}"
+					method="POST">
+					<input type="hidden" name="ccApplicationLang"
+						id="ccApplicationLang" value="">
+					<div style="width: 48%; float: left;">
+
+						<div class="form-group">
+							<label for="dName" id="label_dName">Name of the person
+								who died:</label> <span style="color: red">*</span> <input type="text"
+								class="form-control" id="dName" name="dName"
+								placeholder="Enter full name of the person who died">
+						</div>
+
+						<div class="form-group">
+							<label for="dRelation" id="label_dRelation">Applicant
+								Relation with death person:</label> <span style="color: red">*</span> <input
+								type="text" class="form-control" id="dRelation" name="dRelation"
+								placeholder="Enter Applicant Relation with death person">
+						</div>
+
+						<div class="form-group">
+							<label for="dFatherName" id="label_dFatherName">Father
+								Name of Death person:</label> <span style="color: red">*</span> <input
+								type="text" class="form-control" id="dFatherName"
+								name="dFatherName"
+								placeholder="Enter Father Name of Death person">
+						</div>
+
+						<div class="form-group">
+							<label for="dPresentAddr" id="label_dPresentAddr">Present
+								Address of Death person:</label> <span style="color: red">*</span> <input
+								type="text" class="form-control" id="dPresentAddr"
+								name="dPresentAddr"
+								placeholder="Enter Present Address of Death person">
+						</div>
+
+						<div class="form-group">
+							<label for="mStatus" id="label_mStatus">Marital Status of
+								Death person:</label> <span style="color: red">*</span> <select
+								class="form-control" id="mStatus" name="mStatus">
+								<option id="label_mStatus_married" value="Married">Married</option>
+								<option id="label_mStatus_single" value="Single">Single</option>
+							</select>
+
+						</div>
+
+					</div>
+
+
+					<div
+						style="width: 48%; float: left; overflow: hidden; margin-left: 4%;">
+
+						<div class="form-group">
+							<label for="dGender" id="label_dGender">Gender of Death
+								person:</label> <span style="color: red">*</span> <select
+								class="form-control" id="dGender" name="dGender">
+								<option id="label_dGender_male" value="Male">Male</option>
+								<option id="label_dGender_female" value="Female">Female</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label for="dod" id="label_dod">Date of death:</label> <span
+								style="color: red">*</span> <input type="date"
+								class="form-control" id="dod" name="dod">
+						</div>
+
+						<div class="form-group">
+							<label for="dMotherName" id="label_dMotherName">Mother
+								Name of Death person:</label> <span style="color: red">*</span> <input
+								type="text" class="form-control" id="dMotherName"
+								placeholder="Enter your mother name of Death person"
+								name="dMotherName">
+						</div>
+
+						<div class="form-group">
+							<label for="dPermanentAddr" id="label_dPermanentAddr">Permanent
+								Address of Death person:</label> <span style="color: red">*</span> <input
+								type="text" class="form-control" id="dPermanentAddr"
+								name="dPermanentAddr" placeholder="Enter your Permanent Address">
+						</div>
+
+						<div class="form-group">
+							<label for="dHusbandName" id="label_dHusbandName">Husband
+								Name of Death person:</label> <input type="text" class="form-control"
+								id="dHusbandName" name="dHusbandName"
+								placeholder="Enter Husband Name of Death person">
+						</div>
+
+
+
+					</div>
+
+					<div style="clear: both;"></div>
+
+					<hr style="margin-bottom: 0;" />
+					<p class="text-center">
+						<b id="label_heirList">Heir List</b>
+					</p>
+					<hr style="margin-top: 0;" />
+
+					<div id="heirListDiv">
+
+						<table id="heirListTable">
+							<thead>
+								<tr>
+									<th width="10%">
+										<button type="button" class="add-row btn btn-primary btn-xs">
+											<span class="glyphicon glyphicon-plus-sign"></span> Add
+										</button>
+										<button type="button" class="delete-row btn btn-danger btn-xs">
+											<span class="glyphicon glyphicon-remove-sign"></span> Del
+										</button>
+									</th>
+									<th width="25%"><span id="label_hName">Name</span> 
+									<span style="color: red">*</span>
+									</th>
+									<th width="17%"><span id="label_hRelation">Relation</span>
+										<span style="color: red">*</span></th>
+									<th width="13%"><span id="label_hAge">Age</span> <span
+										style="color: red">*</span></th>
+									<th width="25%" id="label_hRemark">Remark</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="checkbox" name="record"></td>
+									<td><input type="text" class="form-control"
+										name="heirName" placeholder="Enter heir name"></td>
+									<td><input type="text" class="form-control"
+										name="heirRelation" placeholder="Enter heir relation"></td>
+									<td><input type="text" class="form-control" name="heirAge"
+										placeholder="Enter age"></td>
+									<td><input type="text" class="form-control"
+										name="heirRemark" placeholder="Enter heir remark"></td>
+								</tr>
+							</tbody>
+						</table>
+
+
+
+					</div>
+
+					<hr style="margin-bottom: 0;" />
+					<p class="text-center">
+						<b id="label_applicantInfo">Applicant Information</b> 
+					</p>
+					<hr style="margin-top: 0;" />
+					<div style="width: 48%; float: left;">
+						<div class="form-group">
+							<label for="applicantName" id="label_applicantName">Applicant
+								Name:</label> 
+								<span style="color: red">*</span>
+								<input type="text" class="form-control" id="applicantName"
+								placeholder="Enter applicant name" name="applicantName">
+						</div>
+
+
+						<div class="form-group">
+							<label for="applicantAddr" id="label_applicantAddr">Applicant
+								Address:</label> 
+								<span style="color: red">*</span>
+								<input type="text" class="form-control"
+								id="applicantAddr" placeholder="Enter Applicant Address"
+								name="applicantAddr">
+						</div>
+
+
+					</div>
+					<div
+						style="width: 48%; float: left; overflow: hidden; margin-left: 4%;">
+						<div class="form-group">
+							<label for="applicantMobile" id="label_applicantMobile">Applicant
+								Mobile No:</label> 
+								<span style="color: red">*</span>
+								<input type="text" class="form-control"
+								id="applicantMobile" placeholder="Enter applicant mobile"
+								name="applicantMobile">
+						</div>
+
+
+						<div class="form-group">
+							<label for="applicantNidNo" id="label_applicantNidNo">Applicant
+								NID No:</label> <input type="text" class="form-control"
+								id="applicantNidNo" placeholder="Enter applicant NID No"
+								name="applicantNidNo">
+						</div>
+					</div>
+					<div style="clear: both;"></div>
+
+					<hr style="margin-bottom: 0;" />
+					<p class="text-center">
+						<b id="label_attachments">Attachments</b>
+					</p>
+					<hr style="margin-top: 0;" />
+					<div style="width: 48%; float: left;">
+						<div class="form-group">
+							<label id="label_Affidavit">Upload Affidavit from notary
+								public</label>
+								<span style="color: red">*</span>
+							<div class="input-group">
+								<span class="input-group-btn"> <span
+									class="btn btn-default btn-file"><span id="nid1_browse">Browse
+									</span> <span class="glyphicon glyphicon-folder-open"> </span> <input
+										type="file" name="img1" id="img1" accept=".png,.jpg, .jpeg">
+								</span>
+								</span> <input type="text" class="form-control" readonly>
+							</div>
+							<img id='img1Upload' class="img-upload" />
+						</div>
+
+						<div class="form-group">
+							<label for="name" id="label_utilityBill">Upload Applicant
+								Utility Bill/ NID/Passport / Holding Tax Picture:</label>
+								<span style="color: red">*</span>
+							<div class="input-group">
+								<span class="input-group-btn"> <span
+									class="btn btn-default btn-file label_info_browse"><span
+										id="pp_browse">Browse </span> <span
+										class="glyphicon glyphicon-folder-open"> </span> <input
+										type="file" id="img3" name="img3" accept=".png,.jpg, .jpeg">
+								</span>
+								</span> <input type="text" class="form-control" readonly>
+							</div>
+							<img id='img3Upload' class="img-upload" />
+						</div>
+
+					</div>
+					<div
+						style="width: 48%; float: left; overflow: hidden; margin-left: 4%;">
+
+						<div class="form-group">
+							<label id="label_cemeteryReceipt">Upload Death
+								Certificate / Cemetery Receipt</label>
+								<span style="color: red">*</span>
+							<div class="input-group">
+								<span class="input-group-btn"> <span
+									class="btn btn-default btn-file label_info_browse"><span
+										id="nid2_browse">Browse </span> <span
+										class="glyphicon glyphicon-folder-open"> </span> <input
+										type="file" name="img2" id="img2" accept=".png,.jpg, .jpeg">
+								</span>
+								</span> <input type="text" class="form-control" readonly>
+							</div>
+							<img id='img2Upload' class="img-upload" />
+						</div>
+
+					</div>
+					<div style="clear: both;"></div>
+
+
+					<div class="form-group  text-center">
+						<button name="submitButton" class="btn btn-primary" type="submit"
+							id="heirSubmitButton">
+							<span class="glyphicon glyphicon-upload"> </span> Submit
+						</button>
+					</div>
+				</form>
+
+			</div>
+
+			<div class="alert alert-success alert-dismissible" id="trackingNo">
+			</div>
+
+			<script
+				src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+			<script th:src="@{/assets/dncc21/js/jquery.validate.js}"></script>
+			<script th:src="@{/assets/dncc21/js/heirCertificate.js}"></script>
+
+		</div>
+
+
+
+	</div>
+
+	<!-- container -->
+
+
+	<th:block th:replace="dncc21/footer.html :: footer" />
+
+
+</body>
+</html>

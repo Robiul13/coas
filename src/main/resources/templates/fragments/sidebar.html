@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sc="http://www.w3.org/1999/xhtml">
+<body>
+	<th:block th:fragment="sidebar">
+		<aside class="main-sidebar">
+			<section class="sidebar">
+				<div class="user-panel">
+					<div class="pull-left image">
+						<img th:src="@{/assets/img/avatar.png}" class="img-circle"
+							alt="Admin Image" />
+					</div>
+					<div class="pull-left info">
+						<p th:text="${fullname}"></p>
+						<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+					</div>
+				</div>
+				<form action="#" method="get" class="sidebar-form">
+					<div class="input-group">
+						<input type="text" name="q" class="form-control"
+							placeholder="Search..."> <span class="input-group-btn">
+							<button type="submit" name="search" id="search-btn"
+								class="btn btn-flat">
+								<i class="fa fa-search"></i>
+							</button>
+						</span>
+					</div>
+				</form>
+				<ul class="sidebar-menu" data-widget="tree">
+					<li class="header">MAIN NAVIGATION</li>
+					<li th:if="${menulist.contains('/adminpanel/dashboard')}"><a
+						th:href="@{/adminpanel/dashboard}"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
+					<li class="treeview"
+						th:if="${menulist.contains('/adminpanel/v2/complains/complainlist')}">
+						<a href="#"> <i class="fa fa-comments"></i><span>Complain</span>
+							<span class="pull-right-container"> <i
+								class="fa fa-angle-left pull-right"></i>
+						</span>
+					</a>
+						<ul class="treeview-menu">
+							<li
+								th:if="${menulist.contains('/adminpanel/v2/complains/complainlist')}"><a
+								th:href="@{/adminpanel/v2/complains/complainlist}"><i
+									class="fa fa-table"></i>List Complain</a></li>
+						</ul>
+					</li>
+
+					<li class="treeview"
+						th:if="${menulist.contains('/adminpanel/v2/citizenCertificate/list')}">
+						<a href="#"> <i class="fa fa-certificate"></i><span>Citizen
+								Certificate</span> <span class="pull-right-container"> <i
+								class="fa fa-angle-left pull-right"></i>
+						</span>
+					</a>
+						<ul class="treeview-menu">
+							<li
+								th:if="${menulist.contains('/adminpanel/v2/citizenCertificate/list')}"><a
+								th:href="@{/adminpanel/v2/citizenCertificate/list}"><i
+									class="fa fa-table"></i>Citizen Certificate List</a></li>
+						</ul>
+					</li>
+
+					<li class="treeview"
+						th:if="${menulist.contains('/adminpanel/v2/heirCertificates/list')}">
+						<a href="#"> <i class="fa fa-certificate"></i><span>Heir
+								Certificate</span> <span class="pull-right-container"> <i
+								class="fa fa-angle-left pull-right"></i>
+						</span>
+					</a>
+						<ul class="treeview-menu">
+							<li
+								th:if="${menulist.contains('/adminpanel/v2/heirCertificates/list')}"><a
+								th:href="@{/adminpanel/v2/heirCertificates/list}"><i
+									class="fa fa-table"></i>Heir Certificate List</a></li>
+						</ul>
+					</li>
+
+					<li class="treeview"
+						th:if="${menulist.contains('/adminpanel/v2/otherCertificates/list')}">
+						<a href="#"> <i class="fa fa-certificate"></i><span>Others
+								Certificate</span> <span class="pull-right-container"> <i
+								class="fa fa-angle-left pull-right"></i>
+						</span>
+					</a>
+						<ul class="treeview-menu">
+							<li
+								th:if="${menulist.contains('/adminpanel/v2/otherCertificates/list')}"><a
+								th:href="@{/adminpanel/v2/otherCertificates/list}"><i
+									class="fa fa-table"></i>Others Certificate List</a></li>
+						</ul>
+					</li>
+
+					<li class="treeview"
+						th:if="${menulist.contains('/adminpanel/v2/neonates/list')}">
+						<a href="#"> <i class="fa fa-android"></i><span>Neonate
+								Baby</span> <span class="pull-right-container"> <i
+								class="fa fa-angle-left pull-right"></i>
+						</span>
+					</a>
+						<ul class="treeview-menu">
+							<li th:if="${menulist.contains('/adminpanel/v2/neonates/list')}"><a
+								th:href="@{/adminpanel/v2/neonates/list}"><i
+									class="fa fa-table"></i>Neonate Baby List</a></li>
+						</ul>
+					</li>
+
+
+					<li class="treeview"
+						th:if="${menulist.contains('/adminpanel/v2/publicNotice/addNotice')} or ${menulist.contains('/adminpanel/v2/publicNotice/list')}">
+						<a href="#"> <i class="fa fa-bell" aria-hidden="true"></i><span>Notice
+								Management</span> <span class="pull-right-container"> <i
+								class="fa fa-angle-left pull-right"></i>
+						</span>
+					</a>
+						<ul class="treeview-menu">
+							<li th:if="${menulist.contains('/adminpanel/v2/publicNotice/addNotice')}"><a
+								th:href="@{/adminpanel/v2/publicNotice/addNotice}"><i class="fa fa-edit"></i>Add
+									Notice</a></li>
+							<li th:if="${menulist.contains('/adminpanel/v2/publicNotice/list')}"><a
+								th:href="@{/adminpanel/v2/publicNotice/list}"><i
+									class="fa fa-table"></i>Notice List</a></li>
+						</ul>
+					</li>
+
+
+
+
+					<li class="treeview"
+						th:if="${menulist.contains('/adminpanel/user/adduser')} or ${menulist.contains('/adminpanel/user/userlists')}">
+						<a href="#"> <i class="fa fa-user-circle" aria-hidden="true"></i><span>User</span>
+							<span class="pull-right-container"> <i
+								class="fa fa-angle-left pull-right"></i>
+						</span>
+					</a>
+						<ul class="treeview-menu">
+							<li th:if="${menulist.contains('/adminpanel/user/adduser')}"><a
+								th:href="@{/adminpanel/user/adduser}"><i class="fa fa-edit"></i>Add
+									User</a></li>
+							<li th:if="${menulist.contains('/adminpanel/user/userlists')}"><a
+								th:href="@{/adminpanel/user/userlists}"><i
+									class="fa fa-table"></i>User List</a></li>
+						</ul>
+					</li>
+					<li class="treeview"
+						th:if="${menulist.contains('/adminpanel/casbin/addcasbin')} or ${menulist.contains('/adminpanel/casbin/casbinlists')}">
+						<a href="#"> <i class="fa fa-superpowers" aria-hidden="true"></i><span>Role</span>
+							<span class="pull-right-container"> <i
+								class="fa fa-angle-left pull-right"></i>
+						</span>
+					</a>
+						<ul class="treeview-menu">
+							<li th:if="${menulist.contains('/adminpanel/casbin/addcasbin')}"><a
+								th:href="@{/adminpanel/casbin/addcasbin}"><i
+									class="fa fa-edit"></i>Add Role</a></li>
+							<li
+								th:if="${menulist.contains('/adminpanel/casbin/casbinlists')}"><a
+								th:href="@{/adminpanel/casbin/casbinlists}"><i
+									class="fa fa-table"></i>Role List</a></li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+		</aside>
+	</th:block>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/layout}">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+	<div layout:fragment="content" th:remove="tag">
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1 style="text-align: center">Edit Citizen Certificate Status</h1>
+			</section>
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<!-- left column -->
+					<div class="col-md-8 col-md-offset-2">
+						<!-- general form elements -->
+						<div class="box box-primary">
+							<!-- /.box-header -->
+							<!-- form start -->
+
+
+							<form role="form" id="edit_service" method="post"
+								th:action="@{/}" th:object="${clients}">
+								<div class="box-body">
+
+									<table class="table table-striped">
+										<tbody>
+
+											<tr>
+												<th scope="row" width="30%">Tracking No</th>
+												<td><span th:text="${clients.trackingNo}"> </span></td>
+											</tr>
+											<tr>
+												<th scope="row">Name</th>
+												<td><span th:text="${clients.name}"> </span></td>
+											</tr>
+											<tr>
+												<th scope="row">Father / Husband Name</th>
+												<td><span th:text="${clients.fhName}"> </span></td>
+											</tr>
+											<tr>
+												<th scope="row">Mother Name</th>
+												<td><span th:text="${clients.motherName}"> </span></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Present Address</th>
+												<td><span th:text="${clients.presentAddr}"> </span></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Permanent Address</th>
+												<td><span th:text="${clients.permanentAddr}"> </span></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Mobile</th>
+												<td><span th:text="${clients.mobile}"> </span></td>
+											</tr>
+											<!-- <tr>
+												<th scope="row">Email</th>
+												<td><span th:text="${clients.email}"> </span></td>
+											</tr> -->
+
+
+
+
+											<tr>
+												<th scope="row">Reference Info</th>
+												<td><span th:text="${clients.reference}"> </span></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Attachment(s)</th>
+												<td><span th:if="${clients.getPpPath()!= null}">
+
+														<a th:href="@{${clients.getPpPath()}}" target="_blank">
+															<img th:src="@{${clients.getPpPath()}}"
+															class="img-responsive img-rounded"
+															style="width: 100%; height: auto;">
+													</a>
+												</span> <span th:if="${clients.getNid1Path()!= null}"> <br>
+														<a th:href="@{${clients.getNid1Path()}}" target="_blank">
+															<img th:src="@{${clients.getNid1Path()}}"
+															class="img-responsive img-rounded"
+															style="width: 100%; height: auto;">
+													</a>
+												</span> <span th:if="${clients.getNid2Path()!= null}"> <br>
+														<a th:href="@{${clients.getNid2Path()}}" target="_blank">
+															<img th:src="@{${clients.getNid2Path()}}"
+															class="img-responsive img-rounded"
+															style="width: 100%; height: auto;">
+													</a>
+												</span></td>
+											</tr>
+											
+											<tr>
+												<th scope="row">Submit Time:</th>
+												<td
+													th:text="${#dates.format(clients.getCreateDate(), 'yyyy-MM-dd hh:mm:ss a')}"></td>
+											</tr>
+											
+											<tr>
+												<th scope="row">Update Time:</th>
+												<td
+													th:text="${#dates.format(clients.getModifyDate(), 'yyyy-MM-dd hh:mm:ss a')}"></td>
+											</tr>
+
+											<tr>
+												<th scope="row">Status</th>
+												<td><select class="form-control" id="status"
+													name="status">
+														<option th:each="entry : ${statusMap.entrySet()}"
+															th:value="${entry.key}" th:text="${entry.value}"
+															th:selected="${entry.key==clients.status}">
+												</select></td>
+											</tr>
+											<tr>
+												<th scope="row">Remarks</th>
+												<td><textarea class="form-control" rows="2" cols="50"
+														th:field="*{remark}"></textarea></td>
+											</tr>
+
+										</tbody>
+									</table>
+								</div>
+
+								<div class="form-group  text-center">
+									<input type="hidden" id="statusDb" th:field="*{status}" /> 
+									<input type="hidden" id="citizenId" th:field="*{id}" />
+									<button type="button" id="updBtn" class="btn btn-primary"
+										disabled="disabled">Update</button>
+
+									<span
+										th:if="${clients.getStatus().equals('02')} or ${clients.getStatus().equals('04')}">
+																			
+										<a  id="reportBtn" class="btn btn-primary"
+										th:href="@{${birtAddress}}"
+										  target="_blank">
+											<span class="glyphicon glyphicon-print"> </span> Print 
+										</a>
+									</span>
+								</div>
+								<hr />
+							</form>
+
+							<form th:action="@{/adminpanel/v2/citizenCertificate/update}"
+								id="updateCitizenForm" method="POST">
+								<input type="hidden" id="id_temp" name="id" /> <input
+									type="hidden" id="remark_temp" name="remark" /> <input
+									type="hidden" id="status_temp" name="status" />
+							</form>
+							<script th:src="@{/assets/adminpanel/js/citizen/updateCitizen.js}">
+								
+							</script>
+
+						</div>
+					</div>
+				</div>
+				<!-- /.row -->
+			</section>
+			<!-- /.content -->
+		</div>
+	</div>
+
+</body>
+</html>

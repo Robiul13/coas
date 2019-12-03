@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/html"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <script th:src="@{/assets/dncc21/js/citizenCertificate_lang.js}">
+
+    </script>
+
+    <th:block th:replace="dncc21/head.html :: head"/>
+
+</head>
+
+<body class="dncc-portal-gov-bd">
+
+<div class="container">
+
+    <th:block th:replace="dncc21/header.html :: header"/>
+
+    <!-- Citizen Certificate Page -->
+    <!-- <script src="/assets/dncc21/js/citizenCertificate.js"> </script> -->
+
+
+    <div class="sixteen columns">
+        <h4 class="text-center" style="margin-top: 20px;">WELCOME TO
+            DNCC21 ONLINE APPLICATION</h4>
+        <button type="button" class="btn btn-primary btn-lg btn-block" value="en"
+                id="ccBtnEnglish" onclick="loadCcForm(this)">Citizen Certificate Application form
+            (English)
+        </button>
+        <button type="button" class="btn btn-success btn-lg btn-block" value="bn"
+                id="ccBtnBangla" onclick="loadCcForm(this)">নাগরিক সনদ আবেদনপত্র (বাংলা সংস্করণ)
+        </button>
+
+        <div id="citizenCertificateDiv" style="display: none">
+            <h3 class="text-center" id="main_header">Citizen Certificate
+                Application form</h3>
+            <h4 class="text-center" id="sub_header">(English Version)</h4>
+
+            <form name="citizenForm" id="citizenForm"
+                  enctype="multipart/form-data" th:action="@{/api/v1/services/citizen/en/saveApplication}"
+                  method="POST">
+                <input type="hidden" name="ccApplicationLang" id="ccApplicationLang" value="">
+                <div style="width: 70%; float: left;">
+                    <div class="form-group  required control-label">
+                        <label for="name" id="label_info_full_name">Full Name:</label> <span style="color: red">*</span><input
+                            type="text"
+                            class="form-control" id="name"
+                            placeholder="Enter your full name" name="name">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="fhName" class="radio-inline"
+                               style="font-weight: bold;"> <input type="radio"
+                                                                  name="fhType" checked="checked" value="F"><span
+                                id="label_info_father_name">Father Name</span>
+                        </label><span style="color: red">*</span> <label for="fhName" class="radio-inline"
+                                                                         style="font-weight: bold;"> <input type="radio"
+                                                                                                            name="fhType"
+                                                                                                            value="H"><span
+                            id="label_info_husband_name">Husband Name</span>
+                    </label> <span style="color: red">*</span> <input type="text" class="form-control" id="fhName"
+                                                                      placeholder="Enter your Father Name"
+                                                                      name="fhName">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="motherName" id="label_info_mother_name">Mother Name: </label> <span
+                            style="color: red">*</span> <input type="text"
+                                                               class="form-control" id="motherName"
+                                                               placeholder="Enter your mother name" name="motherName">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="presentAddr" id="label_info_pre_addr">Present Address:</label> <span
+                            style="color: red">*</span><input
+                            type="text" class="form-control" id="presentAddr"
+                            placeholder="Enter your Present Address" name="presentAddr">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="permanentAddr" id="label_info_per_addr">Permanent Address:</label><span
+                            style="color: red">*</span> <input
+                            type="text" class="form-control" id="permanentAddr"
+                            placeholder="Enter your Permanent Address" name="permanentAddr">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mobile" id="label_info_mob_no">Mobile Number:</label><span
+                            style="color: red">*</span> <input type="text"
+                                                               class="form-control" id="mobile"
+                                                               placeholder="Enter your Mobile Number" name="mobile">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="reference" id="label_info_reference">Personal Reference:</label><span
+                            style="color: red">*</span>
+                        <textarea class="form-control" rows="3" id="reference"
+                                  name="reference"
+                                  placeholder="Enter your Reference Name, Address and Phone Number"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label id="label_info_nid_front">Upload NID(Front)</label><span style="color: red">*</span>
+                        <div class="input-group">
+								<span class="input-group-btn"> <span
+                                        class="btn btn-default btn-file"><span id="nid1_browse">Browse </span> <span
+                                        class="glyphicon glyphicon-folder-open"> </span> <input
+                                        type="file" name="imgNid1" id="imgNid1"
+                                        accept=".png,.jpg, .jpeg">
+								</span>
+								</span> <input type="text" class="form-control" readonly>
+                        </div>
+                        <img id='nid1Upload' class="img-upload"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label id="label_info_nid_back">Upload NID(back)</label><span style="color: red">*</span>
+                        <div class="input-group">
+								<span class="input-group-btn"> <span
+                                        class="btn btn-default btn-file label_info_browse"><span
+                                        id="nid2_browse">Browse </span> <span
+                                        class="glyphicon glyphicon-folder-open"> </span> <input
+                                        type="file" name="imgNid2" id="imgNid2"
+                                        accept=".png,.jpg, .jpeg">
+								</span>
+								</span> <input type="text" class="form-control" readonly>
+                        </div>
+                        <img id='nid2Upload' class="img-upload"/>
+                    </div>
+                </div>
+
+
+                <div class="form-group"
+                     style="width: 25%; float: left; overflow: hidden; margin-left: 5%;">
+                    <label for="name" id="label_info_pp_photo">Upload Picture:</label><span style="color: red">*</span>
+                    <div class="input-group">
+							<span class="input-group-btn"> <span
+                                    class="btn btn-default btn-file label_info_browse"><span
+                                    id="pp_browse">Browse </span> <span
+                                    class="glyphicon glyphicon-folder-open"> </span> <input
+                                    type="file" id="imgPp" name="imgPp" accept=".png,.jpg, .jpeg">
+							</span>
+							</span> <input type="text" class="form-control" readonly>
+                    </div>
+                    <img id='ppUpload' class="img-upload"/>
+                </div>
+                <div style="clear: both;"></div>
+
+
+                <!-- onclick="saveCitizenData(this)" id="citizenEnSubmitButton">-->
+
+                <div class="form-group  text-center">
+                    <button name="submitButton" class="btn btn-primary" type="submit" id="citizenSubmitButton">
+                        <span class="glyphicon glyphicon-upload"> </span> Submit
+                    </button>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="alert alert-success alert-dismissible" id="trackingNo"></div>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script th:src="@{/assets/dncc21/js/jquery.validate.js}"></script>
+        <script th:src="@{/assets/dncc21/js/citizenCertificate.js}"></script>
+    </div>
+
+
+</div>
+
+<!-- container -->
+
+
+<th:block th:replace="dncc21/footer.html :: footer"/>
+
+
+</body>
+</html>

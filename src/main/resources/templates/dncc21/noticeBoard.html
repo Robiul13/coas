@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/html"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<script th:src="@{/assets/dncc21/js/noticeBoard_lang.js}"></script>
+<th:block th:replace="dncc21/head.html :: head" />
+
+</head>
+
+<body class="dncc-portal-gov-bd">
+
+	<div class="container">
+
+		<th:block th:replace="dncc21/header.html :: header" />
+
+		<div class="sixteen columns">
+			<div id="noticeBoard">
+
+				<hr />
+				<h2 class="text-primary" id="main_header">Notice Board</h2>				
+				<hr />
+			</div>
+
+			<!-- /.box-header -->
+			<div class="box-body">
+				<table class="table table-bordered table-hover table-condensed">
+					<thead>
+						<tr>
+
+							<th id="nb_sl">SL</th>
+							<th id="nb_title">Notice Title</th>
+							<th id="nb_publish">Publish Date</th>
+							<th id="nb_download">Download</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="notice, iterator : ${noticeList}">
+
+							<td th:text="${iterator.index+1}"></td>
+							<td><a th:href="@{${notice.url}}"
+								th:if="${notice.url!= null}" th:text="${notice.title}"
+								target="_blank"> </a></td>
+							<td th:text="${notice.publishDate}"></td>
+							<td><a th:href="@{${notice.url}}"
+								th:if="${notice.url!= null}" class="btn btn-primary btn-sm"
+								target="_blank"> <span
+									class="glyphicon glyphicon-download-alt"></span>
+							</a></td>
+
+
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+
+
+			<script
+				src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			noticeBoard();
+		});
+	</script>
+
+
+	<!-- container -->
+
+
+	<th:block th:replace="dncc21/footer.html :: footer" />
+
+
+</body>
+</html>

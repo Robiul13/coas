@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/html"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<script th:src="@{/assets/dncc21/js/home_lang.js}"></script>
+
+<th:block th:replace="dncc21/head.html :: head" /> 
+
+</head>
+
+<body class="dncc-portal-gov-bd">
+
+
+	<div class="container">
+
+		<th:block th:replace="dncc21/header.html :: header" /> 
+
+		<div id="contents" class="sixteen columns">
+		<!-- Home Page Content -->
+		
+			<!-- Section: about -->
+			<section id="about"
+				class="home-section text-center bg-gray marginbot-20">
+
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 boxed-grey"
+							style="border: 1px solid #dddddd; font-size: 1em; margin: 20px 0 0 0; padding: 10px;">
+							<div class="wow bounceInUp" data-wow-delay="0.2s">
+								<div class="team ">
+									<div class="inner">
+
+										<div class="col-sm-3">
+											<div class="avatar">
+												<img th:src="@{/assets/dncc21/img/pic1.jpg}" alt=""
+													class="img-responsive img-circle" style="border: 1px solid #fcf8e3;"/>
+											</div>
+										</div>
+										<div class="col-sm-6 text-justify">
+										<span style="margin-top: 0; font-size: 24px;" id="about_headline1" >Masum Goni Taposh</span>
+										
+										<span class="subtitle" id="about_headline2" >Councilor, Ward 21, DNCC</span>
+										<hr>
+											<!-- <h1 style="font-weight: bold;" id="about_headline1" >Masum Goni Taposh</h1>
+											<h3 class="subtitle" id="about_headline2" >Councilor, Ward 21, DNCC</h3> -->
+											
+											<p id="aboutMgt_p1"></p>
+											
+										</div>
+										<div class="col-sm-3">
+											<div class="avatar">
+												<img th:src="@{/assets/dncc21/img/father.jpg}" alt=""
+													class="img-responsive img-circle" style="border: 1px solid #fcf8e3;"/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+					</div>
+				</div>
+			</section>
+			<!-- /Section: about -->
+
+			<!-- Section: meeting -->
+			<!-- <section id="meeting"
+				class="home-section text-center bg-gray marginbot-20">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 boxed-grey"
+							style="border: 1px solid #dddddd; font-size: 1em; margin: 20px 0 0 0; padding: 10px;">
+							<div class="wow bounceInUp" data-wow-delay="0.2s">
+								<div class="team ">
+									<div class="inner">
+										<div class="col-sm-3">
+											<div class="avatar">
+												<img src="/assets/dncc21/img/clock.png" alt=""
+													class="img-responsive img-circle" />
+											</div>
+										</div>
+										<div class="col-sm-9 text-justify">
+											<h1 style="font-weight: bold">Program Schedule</h1>
+											<table class="bordered" style="text-align: center;">
+												<thead>
+													<tr>
+														<th width="5%">SL</th>
+														<th width="50%">Subject</th>
+														<th width="15%">Meeting Type</th>
+														<th width="15%">Meeting Date</th>
+														<th width="15%">Venue</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>303</td>
+														<td style="text-align: left;">
+														ইস্ট-ওয়েস্ট বিশ্ববিদ্যালয়ে ডিএনসিসি মেয়রের পরিচ্ছন্নতা অভিযান উদ্বোধন।
+														</td>
+														<td>Political</td>
+														<td width='100'>03-04-2019 4PM</td>
+														<td>33333333333333</td>
+													</tr>
+													<tr>
+														<td>302</td>
+														<td style="text-align: left;">
+														ইস্ট-ওয়েস্ট বিশ্ববিদ্যালয়ে ডিএনসিসি মেয়রের পরিচ্ছন্নতা অভিযান উদ্বোধন।
+														</td>
+														<td>Political</td>
+														<td width='100'>02-04-2019 2PM</td>
+														<td>2222222222222222</td>
+													</tr>
+													<tr>
+														<td>301</td>
+														<td style="text-align: left;">
+														ইস্ট-ওয়েস্ট বিশ্ববিদ্যালয়ে ডিএনসিসি মেয়রের পরিচ্ছন্নতা অভিযান উদ্বোধন।
+														</td>
+														<td>Political</td>
+														<td width='100'>01-04-2019 10AM</td>
+														<td>1111111111111111111</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section> -->
+			<!-- /Section: meeting -->
+
+
+			<div class="sixteen columns" id="left-content">
+				<div class="row mainwrapper">
+					<div class="row" id="notice-board">
+						<div class="notice-board-bg">
+							<h2 id="header_notice_title">Notice Board</h2>
+							<div id="notice-board-ticker">
+
+								<ul>
+									<!-- <li><a th:href="@{/dncc21/services/citizen}" title="Notice 1" id="notice1">1. Application form for Citizen Certificate </a></li>
+									<li><a th:href="@{/dncc21/services/heir}" title="Notice 2" id="notice2">2. Application form for Heir Certificate</a></li>
+									<li><a th:href="@{/dncc21/services/others}" title="Notice 3" id="notice3">3. Application form for Others Certificate</a></li> -->
+									
+									<li><a  title="Notice 1" id="notice1"></a></li>
+									<li><a  title="Notice 2" id="notice2"></a></li>
+									<li><a  title="Notice 3" id="notice3"></a></li>
+									
+								</ul>
+
+								<a class="btn right" th:href="@{/dncc21/noticeBoard}"  >All</a>
+							</div>
+						</div>
+					</div>
+
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- container -->
+<script type="text/javascript">
+home();
+</script>
+
+	<th:block th:replace="dncc21/footer.html :: footer" /> 
+
+
+
+
+
+</body>
+</html>

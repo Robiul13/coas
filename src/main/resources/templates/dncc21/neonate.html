@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/html"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<script th:src="@{/assets/dncc21/js/neonate_lang.js}"></script>
+
+<th:block th:replace="dncc21/head.html :: head" />
+
+</head>
+
+<body class="dncc-portal-gov-bd">
+
+	<div class="container">
+
+		<th:block th:replace="dncc21/header.html :: header" />
+
+		<div class="sixteen columns">
+			<div id="neonateDiv">
+				<h3 class="text-center" id="main_header">Neonate Data Input</h3>
+				<hr />
+
+				<form name="neonateForm" id="neonateApplicationForm"
+					enctype="multipart/form-data"
+					th:action="@{/api/v1/services/neonate/save}" method="POST">
+					<input type="hidden" name="lang" id="neonateLang" value="">
+					<div style="width: 48%; float: left;">
+
+						<div class="form-group">
+							<label for="dob" id="label_dob">Date of Birth:</label> <span
+								style="color: red">*</span><input type="date"
+								class="form-control" id="dob" name="dob">
+						</div>
+
+						<div class="form-group">
+							<label for="father" id="label_father">Father Name of
+								Baby:</label><span style="color: red">*</span> <input type="text"
+								class="form-control" id="father" name="father"
+								placeholder="Enter Father Name of Baby">
+						</div>
+
+
+						<div class="form-group">
+							<label for="presentAddr" id="label_presentAddr">Present
+								Address of Family:</label><span style="color: red">*</span> <input
+								type="text" class="form-control" id="presentAddr"
+								name="presentAddr" placeholder="Enter Present Address of Family">
+						</div>
+
+						<div class="form-group">
+							<label for="mobile" id="label_mobile">Contact Number of
+								Family: </label><span style="color: red">*</span> <input type="text"
+								class="form-control" id="mobile" name="mobile"
+								placeholder="Enter Contact Number of Family">
+						</div>
+					</div>
+
+
+					<div
+						style="width: 48%; float: left; overflow: hidden; margin-left: 4%;">
+						<div class="form-group">
+							<label for="gender" id="label_gender">Gender of Baby:</label> <span
+								style="color: red">*</span><select class="form-control"
+								id="gender" name="gender">
+								<option id="label_gender_boy" value="Boy">Boy</option>
+								<option id="label_gender_girl" value="Girl">Girl</option>
+							</select>
+
+						</div>
+
+						<div class="form-group">
+							<label for="mother" id="label_mother">Mother Name of
+								Baby:</label><span style="color: red">*</span> <input type="text"
+								class="form-control" id="mother" name="mother"
+								placeholder="Enter Mother Name	of Baby">
+						</div>
+
+						<div class="form-group">
+							<label for="permanentAddr" id="label_permanentAddr">Permanent
+								Address of Family:</label><span style="color: red">*</span> <input
+								type="text" class="form-control" id="permanentAddr"
+								name="permanentAddr"
+								placeholder="Enter Permanent Address of Family">
+						</div>
+
+						<div class="form-group">
+							<label for="hospital" id="label_hospital">Hospital Name:</label><span
+								style="color: red">*</span> <input type="text"
+								class="form-control" id="hospital" name="hospital"
+								placeholder="Enter Hospital Name">
+						</div>
+
+
+					</div>
+
+					<div style="clear: both;"></div>
+
+					<div class="form-group  text-center">
+						<button class="btn btn-primary" name="submitButton" type="submit"
+							id="neonateSubmitButton">
+							<span class="glyphicon glyphicon-upload"> </span> Submit
+						</button>
+					</div>
+				</form>
+
+			</div>
+
+			<div class="alert alert-success alert-dismissible" id="trackingNo">
+			</div>
+			<script
+				src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		</div>
+	</div>
+
+	<script th:src="@{/assets/dncc21/js/jquery.validate.js}"></script>
+	<script th:src="@{/assets/dncc21/js/neonate.js}"> </script>
+
+	<!-- container -->
+
+
+	<th:block th:replace="dncc21/footer.html :: footer" />
+
+
+</body>
+</html>

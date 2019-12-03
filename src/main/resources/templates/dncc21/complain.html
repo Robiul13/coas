@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/html"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<th:block th:replace="dncc21/head.html :: head" />
+<script  th:src="@{/assets/dncc21/js/complain_lang.js}"></script>
+</head>
+
+<body class="dncc-portal-gov-bd">
+
+	<div class="container">
+
+		<th:block th:replace="dncc21/header.html :: header" />
+
+		<!-- Citizen Certificate Page -->
+
+		<div class="sixteen columns">
+			<h6></h6>
+
+			
+			<h2 class="text-center" id="lab_mh">Complain Submit Form</h2>
+			<h4 class="text-center" id="lab_sh">(English Version)</h4>
+
+			<form id="complainEnForm" enctype="multipart/form-data"
+				th:action="@{/api/v1/complain/saveComplain}" method="POST">
+				<div class="form-group">
+					<label for="name" id="lab_fn">Full Name:</label>
+					<span style="color: red">*</span>
+					<input type="text"
+						   class="form-control" id="name" placeholder="Enter your full name"
+						   name="name">
+
+				</div>
+
+
+				<div class="form-group">
+					<label for="address" id="lab_addr">Address:</label> <input
+						type="text" class="form-control" id="address"
+						placeholder="Enter your Present Address" name="address">
+				</div>
+
+				<div class="form-group">
+					<label for="email" id="lab_email">Email:</label>
+					<input type="email" class="form-control" id="email" placeholder="Enter your Email" name="email">
+				</div>
+
+				<div class="form-group">
+					<label for="mobile" id="lab_mob">Mobile Number:</label>
+					<span style="color: red">*</span><input
+						type="text" class="form-control" id="mobile"
+						placeholder="Enter your Mobile Number" name="mobile">
+				</div>
+
+				<div class="form-group">
+					<label for="subject" id="lab_sub">Subject:</label><span style="color: red">*</span>
+					<input
+						type="text" class="form-control" id="subject"
+						placeholder="Enter your subject" name="subject">
+				</div>
+
+
+				<div class="form-group">
+					<label for="description" id="lab_desc">Description:
+					</label><span style="color: red">*</span>
+					<textarea class="form-control" id="description" name="description"
+						placeholder="Enter some information"></textarea>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-6 col-md-4">
+						<div class="form-group">
+							<label id="lab_pic1">Upload Picture(1)</label><span style="color: red">*</span>
+							<div class="input-group">
+								<span class="input-group-btn"> <span
+									class="btn btn-default btn-file">Browse <span
+										class="glyphicon glyphicon-folder-open"> </span> 
+										<input type="file" name="pic1" id="pic1" accept=".png,.jpg, .jpeg">
+								</span>
+								</span> <input type="text" class="form-control" readonly>
+							</div>
+							<img id='pic1Upload' class="img-upload" />
+						</div>
+
+					</div>
+					<div class="col-xs-6 col-md-4">
+						<div class="form-group">
+							<label id="lab_pic2">Upload Picture(2)</label>
+							<div class="input-group">
+								<span class="input-group-btn"> <span
+									class="btn btn-default btn-file">Browse <span
+										class="glyphicon glyphicon-folder-open"> </span> <input
+										type="file" name="pic2" id="pic2" accept=".png,.jpg, .jpeg">
+								</span>
+								</span> <input type="text" class="form-control" readonly>
+							</div>
+							<img id='pic2Upload' class="img-upload" />
+						</div>
+					</div>
+					<div class="col-xs-6 col-md-4">
+
+						<div class="form-group">
+							<label id="lab_pic3">Upload Picture(3)</label>
+							<div class="input-group">
+								<span class="input-group-btn"> <span
+									class="btn btn-default btn-file">Browse <span
+										class="glyphicon glyphicon-folder-open"> </span> <input
+										type="file" name="pic3" id="pic3" accept=".png,.jpg, .jpeg">
+								</span>
+								</span> <input type="text" class="form-control" readonly>
+							</div>
+							<img id='pic3Upload' class="img-upload" />
+						</div>
+					</div>
+				</div>
+
+				<div style="clear: both;"></div>
+
+				<div class="form-group  text-center">
+					<button id="complaiEnSubmit" name="submitButton"
+						class="btn btn-primary" type="submit">
+						<span class="glyphicon glyphicon-upload"> </span> Submit
+					</button>
+				</div>
+			</form>
+
+			<div class="alert alert-success alert-dismissible" id="trackingNo">
+				
+			</div>
+
+			<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+			<script  th:src="@{/assets/dncc21/js/jquery.validate.js}"></script>
+			<script  th:src="@{/assets/dncc21/js/complain.js}"></script>
+		</div>
+
+	</div>
+	<!-- container -->
+
+	<th:block th:replace="dncc21/footer.html :: footer" />
+
+</body>
+</html>

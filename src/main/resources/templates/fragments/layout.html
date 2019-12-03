@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">MG Thaposh ||  Admin Panel</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+  <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> 
+   <link rel="stylesheet" href="//unpkg.com/onsenui@2.0.4/css/ionicons/css/ionicons.min.css"> 
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/css/dataTables.bootstrap.min.css"> 
+   <link rel="stylesheet" href="//cdn.quilljs.com/1.3.6/quill.snow.css"> 
+   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.css" /> 
+   <link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css"> 
+   
+    
+    
+    <!-- <link rel="stylesheet"th:href="@{/assets/adminpanel/css/bootstrap.min.css}">
+    <link rel="stylesheet"th:href="@{/assets/adminpanel/css/Material_Icons.css}">
+    <link rel="stylesheet"th:href="@{/assets/adminpanel/css/font-awesome.min.css}">
+    <link rel="stylesheet"th:href="@{/assets/adminpanel/css/ionicons.min.css}">
+    <link rel="stylesheet"th:href="@{/assets/adminpanel/css/dataTables.bootstrap.min.css}">
+    <link rel="stylesheet"th:href="@{/assets/adminpanel/css/quill.snow.css}">
+    <link rel="stylesheet"th:href="@{/assets/adminpanel/css/SourceSansPro.css}">
+    <link rel="stylesheet"th:href="@{/assets/adminpanel/css/material.min.css}">
+    <link rel="stylesheet"th:href="@{/assets/adminpanel/css/vue-multiselect.min.css}"> -->
+
+    <link rel="stylesheet" th:href="@{/assets/css/AdminLTE.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/vue_datepicker_local.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/_all-skins.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/dashboard.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/app.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/sstyle.css}">
+
+ 	 <script src="https://unpkg.com/lodash@4.16.0"></script> 
+  <script src="https://unpkg.com/vue-multiselect@2.1.0"></script> 
+   <script src="//cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script> 
+   <script src="//unpkg.com/vue-toasted"></script> 
+    <script src="//unpkg.com/@saeris/vue-spinners"></script> 
+   <script src="//cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script> 
+    <script src="//unpkg.com/vee-validate@latest"></script>
+    <script src="//unpkg.com/axios/dist/axios.min.js"></script> 
+   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+   <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
+   <script src="//unpkg.com/vue-jstree"></script> 
+    
+    <script th:src="@{/assets/js/vue-html-to-paper.js}"></script>
+    <script th:src="@{/assets/asl_rms/dist/build.js}"></script>
+    <script th:src="@{/assets/js/vue_datepicker_local.js}"></script>
+    
+    <!-- <script th:src="@{/assets/adminpanel/js/lodash.js}"></script>
+    <script th:src="@{/assets/adminpanel/js/vue-multiselect.min.js}"></script>
+    <script th:src="@{/assets/adminpanel/js/vue.js}"></script>
+    <script th:src="@{/assets/adminpanel/js/vue-toasted.min.js}"></script>
+    <script th:src="@{/assets/adminpanel/js/vue-spinners.umd.min.js}"></script>
+    <script th:src="@{/assets/adminpanel/js/vue-resource_1.5.1.js}"></script>
+    <script th:src="@{/assets/adminpanel/js/vee-validate.js}"></script>
+    <script th:src="@{/assets/adminpanel/js/axios.min.js}"></script>
+    <script th:src="@{/assets/adminpanel/js/jquery.min.js}"></script>
+    <script th:src="@{/assets/adminpanel/js/quill.js}"></script>
+    <script th:src="@{/assets/adminpanel/js/vue-jstree.js}"></script> -->
+
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+
+    <style>
+        .ql-toolbar.ql-snow+.ql-container.ql-snow {
+            height: 300px !important;
+        }
+        .small-box .icon {
+            top:10px;
+        }
+        .event-item > .wrapper{
+            background-color: transparent !important;
+        }
+        .__vev_calendar-wrapper .events-wrapper .event-item .desc{
+            color: black;
+        }
+        .__vev_calendar-wrapper .cal-wrapper .cal-header{
+            background-color: rgb(242, 149, 67);
+        }
+
+        .__vev_calendar-wrapper .events-wrapper{
+            background-color: transparent !important;
+            margin-top: 58px;
+        }
+
+        @media screen and (min-width: 768px){
+            .__vev_calendar-wrapper .events-wrapper{
+                background-color: transparent !important;
+            }
+        }
+
+        .__vev_calendar-wrapper .events-wrapper .event-item .time{
+            color: black;
+        }
+
+        .__vev_calendar-wrapper .events-wrapper .date{
+            background-color: rgb(242, 149, 67);
+            border-radius: unset;
+            max-width: 100%;
+        }
+        .room_table td{
+            border: 1px solid black;
+            height: 100px;
+            width: 100px;
+        }
+
+
+        .bs-glyphicons {
+            padding-left: 0;
+            padding-bottom: 1px;
+            margin-bottom: 20px;
+            list-style: none;
+            overflow: hidden;
+        }
+
+        .bs-glyphicons li {
+            float: left;
+            width: 25%;
+            height: 115px;
+            padding: 10px;
+            margin: 0 -1px -1px 0;
+            font-size: 12px;
+            line-height: 1.4;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .bs-glyphicons .glyphicon {
+            margin-top: 5px;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .bs-glyphicons .glyphicon-class {
+            display: block;
+            text-align: center;
+            word-wrap: break-word; /* Help out IE10+ with class names */
+        }
+
+        .bs-glyphicons li:hover {
+            background-color: rgba(86, 61, 124, .1);
+        }
+
+        @media (min-width: 768px) {
+            .bs-glyphicons li {
+                width: calc(100% / 8 - 16px);
+                margin-bottom: 16px;
+            }
+        }
+
+        .rooms li:not(:nth-child(8)){
+            margin-right: 16px;
+        }
+
+        /*.room_table td div{*/
+        /*width:100px;*/
+        /*height:100px;*/
+        /*overflow:hidden;*/
+        /*word-wrap:break-word;*/
+        /*}*/
+
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+
+<div class="wrapper">
+    <th:block th:replace="fragments/header :: header"/>
+    <th:block th:replace="fragments/sidebar :: sidebar"/>
+
+    <th:block layout:fragment="content"/>
+
+    <th:block th:replace="fragments/footer :: footer"/>
+    <th:block th:replace="fragments/control-sidebar :: control-sidebar"/>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/dataTables.bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js"></script>
+
+<script th:src="@{/assets/js/adminlte.min.js}"></script>
+<script th:src="@{/assets/js/demo.js}"></script>
+</body>
+</html>

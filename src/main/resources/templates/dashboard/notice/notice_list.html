@@ -1,0 +1,76 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/layout}">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+	<div layout:fragment="content" th:remove="tag">
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>Notice List</h1>
+			</section>
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<!-- /.box-header -->
+							<div class="box-body">
+								<table class="table table-bordered table-hover table-condensed">
+									<thead>
+										<tr>
+
+											<th>SL</th>
+											<th>Notice Title</th>
+											<th>Publish Date</th>
+											<th>Create Time</th>
+											<th>Download</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="notice, iterator : ${noticeList}">
+
+											<td th:text="${iterator.index+1}"></td>
+											<!-- <td th:text="${notice.title}"> -->
+											 <td>
+											<a th:href="@{${notice.url}}"
+												th:if="${notice.url!= null}" 
+												th:text="${notice.title}"
+												target="_blank"> 
+											</a>
+											
+											</td>
+											<td th:text="${notice.publishDate}"></td>
+											
+											<td
+												th:text="${#dates.format(notice.createDate, 'yyyy-MM-dd hh:mm:ss a')}"></td>
+											<td><a th:href="@{${notice.url}}"
+												th:if="${notice.url!= null}" class="btn btn-danger btn-sm"
+												target="_blank"> <i class="fa fa-file-pdf-o"></i>
+											</a></td>
+
+											<td><a
+												th:href="@{/adminpanel/v2/publicNotice/editNotice/{id}(id=${notice.getId()})}"
+												class="btn btn-xs btn-success"> <i
+													class="fa fa-pencil-square-o"> </i> Edit</a> <a
+												th:href="@{/adminpanel/v2/publicNotice/deleteNotice/{id}(id=${notice.getId()})}"
+												class="btn btn-xs btn-danger"> <i class="fa fa-trash-o"> </i> Delete
+											</a></td>
+
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</body>
+</html>

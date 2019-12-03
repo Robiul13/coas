@@ -1,0 +1,70 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Neonate List
+            </h1>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <table  id="example" class="table table-bordered table-hover table-condensed">
+                                <thead>
+                                <tr>
+                                    <th width="5%">Action</th>
+                                    <th width="20%">Mother Name</th>
+                                    <th width="15%">Baby's Gender</th>
+                                    <th width="10%">DOB</th>  
+                                    <th width="20%">Submit Time</th>
+                                    <th width="20%">Hospital</th>
+                                     <th width="10%">Tracking No</th>  
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="neonate : ${neonatelist}">
+                                    <td>
+                                        <a th:href="@{/adminpanel/v2/neonates/edit/{id}(id=${neonate.getId()})}" class="btn btn-xs btn-success"> <i class="fa fa-pencil-square-o"></i></a>
+                                       
+                                    </td>
+                                    <td th:text="${neonate.getMother()}"></td>
+                                     <td><span class="label label-success" th:text="${neonate.getGender()}"></span></td> 
+                                    <td th:text="${neonate.getDob()}"></td>
+                                    <td th:text="${#dates.format(neonate.getCreateDate(), 'yyyy-MM-dd hh:mm:ss a')}"></td>  
+                                    <td th:text="${neonate.getHospital()}"></td>
+                                    <td th:text="${neonate.getTrackingNo()}"></td>
+                                                                     
+                                  
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+            
+            <script type="text/javascript">
+            $(document).ready(function() {
+                $('#example').DataTable();
+            } );
+            </script>
+        </section>
+    </div>
+</div>
+</body>
+</html>

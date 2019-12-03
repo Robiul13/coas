@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/html"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <script  th:src="@{/assets/dncc21/js/othersCertificate_lang.js}"> </script>
+
+    <th:block th:replace="dncc21/head.html :: head"/>
+
+</head>
+
+<body class="dncc-portal-gov-bd">
+
+<div class="container">
+
+    <th:block th:replace="dncc21/header.html :: header"/>
+
+    <!-- Other Certificate Page -->
+   
+    <div class="sixteen columns">
+        <div id="heirCertificateDiv">
+            <h3 class="text-center text-primary" id="main_header">Others Certificate
+                Application form</h3>
+            <hr/>
+
+            <form name="othersApplicationForm" id="othersApplicationForm"
+                  enctype="multipart/form-data"
+                 th:action="@{/api/v1/services/othersCertificate/save}" method="POST">
+                <input type="hidden" name="ccApplicationLang"
+                       id="ccApplicationLang" value="">
+                <div style="width: 48%; float: left;">
+
+                    <div class="form-group">
+                        <label for="certificateType" id="label_certificateType">Select Certificate Type</label>
+                        <span style="color: red">*</span>
+                        <select class="form-control" id="certificateType" name="certificateType">
+                        <option id="label_certificateType_unmarried" value="UNMARRIED CERTIFICATE">UNMARRIED CERTIFICATE</option>
+                        <option id="label_certificateType_remarriage" value="NON REMARRIAGE CERTIFICATE">NON REMARRIAGE CERTIFICATE</option>
+                        <option id="label_certificateType_monthlyIncome" value="MONTHLY/YEARLY INCOME CERTIFICATE">MONTHLY/YEARLY INCOME CERTIFICATE</option>
+                        <option id="label_certificateType_poverty" value="INSOLVENCY CERTIFICATE">INSOLVENCY CERTIFICATE</option>
+                        <option id="label_certificateType_family" value="FAMILY CERTIFICATE">FAMILY CERTIFICATE</option>
+                    </select>
+                    </div>
+     
+                    <div class="form-group">
+                        <label for="fhName" class="radio-inline"
+                               style="font-weight: bold;">                               
+                            <input type="radio" name="fhType" checked="checked" value="F">
+                            <span id="label_father_name">Father Name</span>
+                        </label> <label for="fhName" class="radio-inline"
+                                        style="font-weight: bold;">
+                        <input type="radio" name="fhType" value="H">
+                        <span id="label_info_husband_name">Husband Name</span>
+                    </label>
+                    <span style="color: red">*</span>
+                        <input type="text" class="form-control" id="fhName" placeholder="Enter your Father/Husband Name" name="fhName">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="motherName" id="label_motherName">Mother Name of the person:</label>
+                        <span style="color: red">*</span>
+                        <input type="text" class="form-control" id="motherName"
+                                                                 placeholder="Enter mother name "
+                                                                 name="motherName">
+                    </div>
+
+                </div>
+
+
+                <div
+                        style="width: 48%; float: left; overflow: hidden; margin-left: 4%;">
+
+                    <div class="form-group">
+                        <label for="pName" id="label_pName">Name of the
+                            person</label><span style="color: red">*</span>
+                        <input type="text" class="form-control"
+                                                            id="pName" name="pName"
+                                                            placeholder="Enter full name">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="presentAddr" id="label_presentAddr">Present Address of the person:</label>
+                        <span style="color: red">*</span>
+                        <input type="text" class="form-control" id="presentAddr" name="presentAddr"
+                                                                    placeholder="Enter Present Address of the person">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="parmanentAddr" id="label_parmanentAddr">Permanent
+                            Address of the person:</label>
+                            <span style="color: red">*</span>
+                             <input type="text" class="form-control"
+                                                                    id="parmanentAddr" name="parmanentAddr"
+                                                                    placeholder="Enter your Permanent Address">
+                    </div>
+
+                </div>
+
+                <div style="clear: both;"></div>
+                <hr style="margin-bottom: 0;"/>
+                <p class="text-center text-success">
+                    <b id="label_applicant_info" >Applicant Information</b>
+                </p>
+                <hr style="margin-top: 0;"/>
+                <div style="width: 48%; float: left;">
+
+
+                    <div class="form-group">
+                        <label for="applicantName" id="label_applicantName">Applicant
+                            Name:</label> 
+                            <span style="color: red">*</span>
+                            <input type="text" class="form-control" id="applicantName"
+                                                 placeholder="Enter applicant name" name="applicantName">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="applicantFHname" class="radio-inline"
+                               style="font-weight: bold;">
+                            <input type="radio" name="afhType" checked="checked" value="F">
+                            <span id="label_applicant_father_name">Applicant Father Name</span>
+                        </label> <label for="applicantFHname" class="radio-inline"
+                                        style="font-weight: bold;">
+                        <input type="radio" name="afhType" value="H">
+                        <span id="label_applicant_husband_name">Applicant Husband Name</span>
+                    </label>
+                    <span style="color: red">*</span>
+                        <input type="text" class="form-control" id="applicantFHname" 
+                        placeholder="Enter your Father Name" name="afhName">
+                    </div>
+
+                </div>
+                <div
+                        style="width: 48%; float: left; overflow: hidden; margin-left: 4%;">
+                    <div class="form-group">
+                        <label for="applicantMobile" id="label_applicantMobile">Applicant Mobile No:</label>
+                        <span style="color: red">*</span>
+                        <input type="text" class="form-control" id="applicantMobile"
+                                                      placeholder="Enter applicant mobile" name="applicantMobile">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="applicantAddr" id="label_applicantAddr">Applicant Address:</label>
+                        <span style="color: red">*</span>
+                        <input type="text" class="form-control" id="applicantAddr"
+                               placeholder="Enter Applicant Address" name="applicantAddr">
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+
+                <hr style="margin-bottom: 0;"/>
+                <p class="text-center text-info">
+                    <b id="label_attachments">Attachments</b>
+                </p>
+                <hr style="margin-top: 0;"/>
+
+                <div style="width: 48%; float: left;">
+                    <div class="form-group">
+                        <label for="img1" id="label_Affidavit">Upload Affidavit from notary public</label>
+                        <span style="color: red">*</span>
+                        <div class="input-group">
+								<span class="input-group-btn"> <span
+                                        class="btn btn-default btn-file"><span id="nid1_browse">Browse
+									</span> <span class="glyphicon glyphicon-folder-open"> </span> <input
+                                        type="file" name="img1" id="img1"
+                                        accept=".png,.jpg, .jpeg"> </span>
+								</span> <input type="text" class="form-control" readonly>
+                        </div>
+                        <img id='img1Upload' class="img-upload"/>
+                    </div>
+
+
+                </div>
+                <div
+                        style="width: 48%; float: left; overflow: hidden; margin-left: 4%;">
+
+                    <div class="form-group">
+                        <label for="img2" id="label_utilityBill">Upload
+                            Applicant Utility Bill/ NID/Passport / Holding Tax Picture:</label>
+                            <span style="color: red">*</span>
+                        <div class="input-group">
+								<span class="input-group-btn">
+                                    <span class="btn btn-default btn-file label_info_browse">
+                                        <span id="pp_browse">Browse </span>
+                                        <span class="glyphicon glyphicon-folder-open"> </span>
+                                        <input type="file" id="img2" name="img2" accept=".png,.jpg, .jpeg">
+								</span>
+								</span>
+                            <input type="text" class="form-control" readonly>
+                        </div>
+                        <img id='img2Upload' class="img-upload"/>
+                    </div>
+
+                </div>
+                <div style="clear: both;"></div>
+
+
+                <div class="form-group  text-center">
+                    <button name="submitButton" class="btn btn-primary" type="submit"
+                            id="othersSubmitButton">
+                        <span class="glyphicon glyphicon-upload"> </span> Submit
+                    </button>
+                </div>
+            </form>
+
+        </div>
+
+       <div class="alert alert-success alert-dismissible" id="trackingNo"> </div>
+
+        <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script th:src="@{/assets/dncc21/js/jquery.validate.js}"></script>
+        <script th:src="@{/assets/dncc21/js/othersCertificate.js}"></script>
+
+    </div>
+
+
+</div>
+<!-- container -->
+
+
+<th:block th:replace="dncc21/footer.html :: footer"/>
+
+
+</body>
+</html>

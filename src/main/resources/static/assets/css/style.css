@@ -1,0 +1,42 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 21, 2017, 5:39:43 PM
+    Author     : Moksedur
+*/
+
+
+.invoicefontstyle{
+    /*font-size: 16px;*/
+-webkit-text-size-adjust:none;
+-ms-text-size-adjust:none;
+-moz-text-size-adjust:none;
+-text-size-adjust:none;
+}
+/*input[type=checkbox]{
+    height: 25px;
+    width: 28px;
+    background-color: #00e765;
+    background: #666666;
+    align-content: center;
+}*/
+
+
+label.error:after {
+    content:"";
+    display: inline-block;
+    /*margin-left:10px;*/
+    background: url("http://dummyimage.com/15x15/de1417/de1417.png") no-repeat;
+    /*width: 15px;*/
+    /*height: 15px;*/
+}
+
+.valid{
+    /*margin-left:10px;*/
+    background:#FFEFC1;
+    /*width: 15px;*/
+    /*height: 15px;*/
+}
